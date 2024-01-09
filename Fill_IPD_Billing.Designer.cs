@@ -53,6 +53,7 @@ namespace Ruby_Hospital
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -63,7 +64,6 @@ namespace Ruby_Hospital
             this.label12 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -87,13 +87,13 @@ namespace Ruby_Hospital
             this.label21 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.infogrid = new System.Windows.Forms.DataGridView();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -298,6 +298,15 @@ namespace Ruby_Hospital
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // button5
+            // 
+            resources.ApplyResources(this.button5, "button5");
+            this.button5.BackColor = System.Drawing.Color.Silver;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Name = "button5";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
             // label11
             // 
             resources.ApplyResources(this.label11, "label11");
@@ -353,12 +362,6 @@ namespace Ruby_Hospital
             this.textBox12.ForeColor = System.Drawing.Color.Gray;
             this.textBox12.Name = "textBox12";
             // 
-            // comboBox2
-            // 
-            resources.ApplyResources(this.comboBox2, "comboBox2");
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Name = "comboBox2";
-            // 
             // label23
             // 
             resources.ApplyResources(this.label23, "label23");
@@ -387,6 +390,7 @@ namespace Ruby_Hospital
             resources.ApplyResources(this.textBox7, "textBox7");
             this.textBox7.ForeColor = System.Drawing.Color.Gray;
             this.textBox7.Name = "textBox7";
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // textBox6
             // 
@@ -488,6 +492,12 @@ namespace Ruby_Hospital
             this.label3.Name = "label3";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // comboBox2
+            // 
+            resources.ApplyResources(this.comboBox2, "comboBox2");
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Name = "comboBox2";
+            // 
             // label20
             // 
             resources.ApplyResources(this.label20, "label20");
@@ -530,15 +540,6 @@ namespace Ruby_Hospital
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.BackColor = System.Drawing.Color.Silver;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // Fill_IPD_Billing
             // 
