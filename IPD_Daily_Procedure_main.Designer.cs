@@ -299,6 +299,7 @@ namespace Ruby_Hospital
             this.newRoomS.Name = "newRoomS";
             this.newRoomS.Size = new System.Drawing.Size(307, 31);
             this.newRoomS.TabIndex = 3;
+            this.newRoomS.SelectedIndexChanged += new System.EventHandler(this.newRoomS_SelectedIndexChanged);
             this.newRoomS.TextChanged += new System.EventHandler(this.newRoomS_TextChanged);
             // 
             // label1
@@ -339,6 +340,7 @@ namespace Ruby_Hospital
             // BedNo
             // 
             this.BedNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BedNo.Enabled = false;
             this.BedNo.FormattingEnabled = true;
             this.BedNo.Location = new System.Drawing.Point(225, 88);
             this.BedNo.Name = "BedNo";
@@ -348,6 +350,7 @@ namespace Ruby_Hospital
             // oldroom
             // 
             this.oldroom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.oldroom.Enabled = false;
             this.oldroom.FormattingEnabled = true;
             this.oldroom.Location = new System.Drawing.Point(225, 41);
             this.oldroom.Name = "oldroom";

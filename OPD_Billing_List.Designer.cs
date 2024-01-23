@@ -58,9 +58,9 @@ namespace Ruby_Hospital
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.panel2.Margin = new System.Windows.Forms.Padding(15, 12, 15, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1370, 40);
+            this.panel2.Size = new System.Drawing.Size(1827, 49);
             this.panel2.TabIndex = 30;
             // 
             // label1
@@ -71,9 +71,9 @@ namespace Ruby_Hospital
             this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(183, 15, 183, 281);
+            this.label1.Margin = new System.Windows.Forms.Padding(244, 18, 244, 346);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 36);
+            this.label1.Size = new System.Drawing.Size(221, 44);
             this.label1.TabIndex = 2;
             this.label1.Text = "OPD Billing ";
             // 
@@ -82,9 +82,10 @@ namespace Ruby_Hospital
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.OPDdatagridview);
-            this.panel1.Location = new System.Drawing.Point(23, 213);
+            this.panel1.Location = new System.Drawing.Point(31, 262);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1325, 508);
+            this.panel1.Size = new System.Drawing.Size(1767, 625);
             this.panel1.TabIndex = 38;
             // 
             // OPDdatagridview
@@ -95,8 +96,9 @@ namespace Ruby_Hospital
             this.OPDdatagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OPDdatagridview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OPDdatagridview.Location = new System.Drawing.Point(0, 0);
+            this.OPDdatagridview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OPDdatagridview.Name = "OPDdatagridview";
-            this.OPDdatagridview.Size = new System.Drawing.Size(1325, 508);
+            this.OPDdatagridview.Size = new System.Drawing.Size(1767, 625);
             this.OPDdatagridview.TabIndex = 0;
             this.OPDdatagridview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OPDdatagridview_CellClick);
             this.OPDdatagridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OPDdatagridview_CellContentClick);
@@ -105,18 +107,20 @@ namespace Ruby_Hospital
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(345, 145);
+            this.label2.Location = new System.Drawing.Point(460, 178);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 28);
+            this.label2.Size = new System.Drawing.Size(161, 37);
             this.label2.TabIndex = 33;
             this.label2.Text = "Search By";
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1009, 149);
+            this.pictureBox4.Location = new System.Drawing.Point(1345, 183);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(27, 29);
+            this.pictureBox4.Size = new System.Drawing.Size(36, 36);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 37;
             this.pictureBox4.TabStop = false;
@@ -124,9 +128,10 @@ namespace Ruby_Hospital
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(965, 148);
+            this.pictureBox3.Location = new System.Drawing.Point(1287, 182);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(29, 31);
+            this.pictureBox3.Size = new System.Drawing.Size(39, 38);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 36;
             this.pictureBox3.TabStop = false;
@@ -134,9 +139,10 @@ namespace Ruby_Hospital
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Ruby_Hospital.Properties.Resources._264294910_108862081637008_8238947895213189007_n_removebg_preview;
-            this.pictureBox2.Location = new System.Drawing.Point(1182, 40);
+            this.pictureBox2.Location = new System.Drawing.Point(1576, 49);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(185, 65);
+            this.pictureBox2.Size = new System.Drawing.Size(247, 80);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 32;
             this.pictureBox2.TabStop = false;
@@ -144,9 +150,10 @@ namespace Ruby_Hospital
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-64, 111);
+            this.pictureBox1.Location = new System.Drawing.Point(-85, 137);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1690, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(2253, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
@@ -155,12 +162,12 @@ namespace Ruby_Hospital
             // 
             this.txtRelativeMobileNo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRelativeMobileNo.ForeColor = System.Drawing.Color.Gray;
-            this.txtRelativeMobileNo.Location = new System.Drawing.Point(680, 148);
-            this.txtRelativeMobileNo.Margin = new System.Windows.Forms.Padding(50, 5, 50, 90);
+            this.txtRelativeMobileNo.Location = new System.Drawing.Point(907, 182);
+            this.txtRelativeMobileNo.Margin = new System.Windows.Forms.Padding(67, 6, 67, 111);
             this.txtRelativeMobileNo.MaxLength = 10;
             this.txtRelativeMobileNo.Multiline = true;
             this.txtRelativeMobileNo.Name = "txtRelativeMobileNo";
-            this.txtRelativeMobileNo.Size = new System.Drawing.Size(260, 29);
+            this.txtRelativeMobileNo.Size = new System.Drawing.Size(345, 35);
             this.txtRelativeMobileNo.TabIndex = 39;
             this.txtRelativeMobileNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -175,17 +182,17 @@ namespace Ruby_Hospital
             "Mother",
             "Father",
             "Friend"});
-            this.cmbRelation.Location = new System.Drawing.Point(491, 148);
-            this.cmbRelation.Margin = new System.Windows.Forms.Padding(50, 5, 50, 90);
+            this.cmbRelation.Location = new System.Drawing.Point(655, 182);
+            this.cmbRelation.Margin = new System.Windows.Forms.Padding(67, 6, 67, 111);
             this.cmbRelation.Name = "cmbRelation";
-            this.cmbRelation.Size = new System.Drawing.Size(162, 29);
+            this.cmbRelation.Size = new System.Drawing.Size(215, 31);
             this.cmbRelation.TabIndex = 19;
             // 
             // OPD_Billing_List
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1827, 922);
             this.Controls.Add(this.cmbRelation);
             this.Controls.Add(this.txtRelativeMobileNo);
             this.Controls.Add(this.panel2);
@@ -195,6 +202,7 @@ namespace Ruby_Hospital
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "OPD_Billing_List";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OPD_Billing_List";

@@ -69,7 +69,7 @@ namespace Ruby_Hospital
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Margin = new System.Windows.Forms.Padding(50, 5, 50, 90);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(259, 36);
+            this.label10.Size = new System.Drawing.Size(331, 44);
             this.label10.TabIndex = 2;
             this.label10.Text = "OPD Consultation";
             // 
@@ -92,7 +92,7 @@ namespace Ruby_Hospital
             this.label9.Location = new System.Drawing.Point(463, 168);
             this.label9.Margin = new System.Windows.Forms.Padding(50, 5, 50, 90);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(166, 23);
+            this.label9.Size = new System.Drawing.Size(207, 28);
             this.label9.TabIndex = 44;
             this.label9.Text = "Seach Employee";
             // 
@@ -104,7 +104,7 @@ namespace Ruby_Hospital
             this.comboBox1.Location = new System.Drawing.Point(630, 165);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(50, 5, 50, 90);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 29);
+            this.comboBox1.Size = new System.Drawing.Size(140, 31);
             this.comboBox1.TabIndex = 43;
             // 
             // textBox1
@@ -177,7 +177,7 @@ namespace Ruby_Hospital
             // 
             // OPD_Consultaion_gridview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.pictureBox5);

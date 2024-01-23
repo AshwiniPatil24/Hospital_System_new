@@ -13,16 +13,18 @@ namespace Ruby_Hospital
 {
     public partial class IPD_Surgical_Procedure : Form
     {
-        int id;
+        int id;//PID
+        int ipdid;//IPDID
         public int Public_ID;
         public IPD_Surgical_Procedure()
         {
             InitializeComponent();
         }
-        public IPD_Surgical_Procedure(int a)
+        public IPD_Surgical_Procedure(int a,int b)
         {
             InitializeComponent();
             id = a;
+            ipdid = b;
         }
         public void PID()
         {
@@ -34,8 +36,9 @@ namespace Ruby_Hospital
                          Ruby_Jamner123.IPD_Registration.Date_Of_Admission
 FROM            Ruby_Jamner123.IPD_Registration INNER JOIN
                          Ruby_Jamner123.Patient_Registration ON Ruby_Jamner123.IPD_Registration.Patient_Id = Ruby_Jamner123.Patient_Registration.PID
-WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
-                cmd.Parameters.AddWithValue(@"Patient_Id", id);
+WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id) and Ruby_Jamner123.IPD_Registration.IPDID = @i", con);
+                cmd.Parameters.AddWithValue("@Patient_Id", id);
+                cmd.Parameters.AddWithValue("@i", ipdid);
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 DataTable o = new DataTable();
                 adt.Fill(o);
@@ -71,7 +74,7 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
             SqlDataAdapter adt = new SqlDataAdapter(cmb);
             DataTable dt = new DataTable();
             adt.Fill(dt);
-            if(dt.Rows.Count>0)
+            if (dt.Rows.Count > 0)
             {
                 cmbSurgen1.DataSource = dt;
                 cmbSurgen1.DisplayMember = "Dr_Name";
@@ -158,7 +161,7 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
         {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
-            SqlCommand cmb = new SqlCommand(@"Select * from Master_IPDSurgicalProcType", con);            
+            SqlCommand cmb = new SqlCommand(@"Select * from Master_IPDSurgicalProcType", con);
             SqlDataAdapter adt = new SqlDataAdapter(cmb);
             DataTable dt = new DataTable();
             adt.Fill(dt);
@@ -181,7 +184,7 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
                 comboBox1.DisplayMember = "SurgicalTypeName";
                 comboBox1.ValueMember = "ID";
                 comboBox1.Text = "--Select Surgery Category--";
-            }            
+            }
         }
         public void Procedure()
         {
@@ -193,7 +196,7 @@ WHERE        ProcedureTypeID = @ProcedureTypeID", con);
             SqlDataAdapter adt = new SqlDataAdapter(cmb);
             DataTable dt = new DataTable();
             adt.Fill(dt);
-            if(dt.Rows.Count>0)
+            if (dt.Rows.Count > 0)
             {
                 comsurgeryname.DataSource = dt;
                 comsurgeryname.DisplayMember = "Name";
@@ -219,7 +222,7 @@ WHERE        ProcedureTypeID = @ProcedureTypeID", con);
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Select ID,Surgical_Category,Surgery_Name From AssignIPDSurgicalProcedure where IPDID=@id", con);
-            cmd.Parameters.AddWithValue(@"id", id);
+            cmd.Parameters.AddWithValue(@"id", ipdid);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable dtPublic = new DataTable();
             adt.Fill(dtPublic);
@@ -228,7 +231,7 @@ WHERE        ProcedureTypeID = @ProcedureTypeID", con);
                 dataGridView2.DataSource = dtPublic;
                 dataGridView2.Columns["ID"].Visible = false;
             }
-           
+
         }
         public void Save_SurgicalProcedure()
         {
@@ -240,7 +243,7 @@ WHERE        ProcedureTypeID = @ProcedureTypeID", con);
                     con.Open();
                     SqlCommand cmd = new SqlCommand(@"Insert into AssignIPDSurgicalProcedure (IPDID,Surgical_Category,Surgery_Name,Surgeon_Name1,Surgeon_Name2,Assistant_Name_1,Assistant_Name_2,AnesthetistName,SurgeonCharges,SevoFlurenceCharges,OTCharges,OTAssistant,OutsideOTWithoutAnesthesia,OTInstruments,BoylesMachineCharges,AnesthetistCharges,OtherCharges,TotalAmount,Remark,SurgeryDate) 
 Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@Assistant_Name_1,@Assistant_Name_2,@AnesthetistName,@SurgeonCharges,@SevoFlurenceCharges,@OTCharges,@OTAssistant,@OutsideOTWithoutAnesthesia,@OTInstruments,@BoylesMachineCharges,@AnesthetistCharges,@OtherCharges,@TotalAmount,@Remark,@SurgeryDate)", con);
-                    cmd.Parameters.AddWithValue("@IPDID", id);
+                    cmd.Parameters.AddWithValue("@IPDID", ipdid);
                     cmd.Parameters.AddWithValue("@Surgical_Category", comboBox1.Text);
                     cmd.Parameters.AddWithValue("@Surgery_Name", comsurgeryname.Text);
                     cmd.Parameters.AddWithValue("@Surgeon_Name1", cmbSurgen1.Text);
@@ -280,7 +283,7 @@ Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@As
                 {
                     MessageBox.Show("Select Surgery Details");
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -292,7 +295,7 @@ Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@As
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Select ID,SurgeonName From SurgeonName where SurgeryName=@SurgeryName and IPDID=@id", con);
-            cmd.Parameters.AddWithValue(@"id", id);
+            cmd.Parameters.AddWithValue(@"id", ipdid);
             cmd.Parameters.AddWithValue(@"SurgeryName", comsurgeryname.Text);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable dtPublic = new DataTable();
@@ -312,7 +315,7 @@ Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@As
                 SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"Insert into SurgeonName (IPDID,SurgeryName,SurgeonName) Values(@IPDID,@SurgeryName,@SurgeonName)", con);
-                cmd.Parameters.AddWithValue("@IPDID", id);
+                cmd.Parameters.AddWithValue("@IPDID", ipdid);
                 cmd.Parameters.AddWithValue("@SurgeryName", comsurgeryname.Text);
                 cmd.Parameters.AddWithValue("@SurgeonName", cmbSurgen1.Text);
 
@@ -335,7 +338,7 @@ Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@As
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Select ID,AssistantName From AssistantName_Table where SurgeryName=@SurgeryName and IPDID=@id", con);
-            cmd.Parameters.AddWithValue(@"id", id);
+            cmd.Parameters.AddWithValue(@"id", ipdid);
             cmd.Parameters.AddWithValue(@"SurgeryName", comsurgeryname.Text);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable dtPublic = new DataTable();
@@ -344,7 +347,7 @@ Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@As
             {
                 dataGridView4.DataSource = dtPublic;
                 dataGridView4.Columns["ID"].Visible = false;
-                dataGridView4.Columns["AssistantName"].HeaderText= "Assistant_Name";
+                dataGridView4.Columns["AssistantName"].HeaderText = "Assistant_Name";
             }
 
         }
@@ -355,7 +358,7 @@ Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@As
                 SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"Insert into AssistantName_Table (IPDID,SurgeryName,AssistantName) Values(@IPDID,@SurgeryName,@AssistantName)", con);
-                cmd.Parameters.AddWithValue("@IPDID", id);
+                cmd.Parameters.AddWithValue("@IPDID", ipdid);
                 cmd.Parameters.AddWithValue("@SurgeryName", comsurgeryname.Text);
                 cmd.Parameters.AddWithValue("@AssistantName", cmbAssistant1.Text);
 
@@ -368,7 +371,7 @@ Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@As
             {
                 MessageBox.Show("Select Assistant Name");
             }
-                
+
 
         }
 
@@ -377,7 +380,7 @@ Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@As
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Select ID,Anesthetist From  Anesthetit_SurgeryName where SurgeryName=@SurgeryName and IPDID=@id", con);
-            cmd.Parameters.AddWithValue(@"id", id);
+            cmd.Parameters.AddWithValue(@"id", ipdid);
             cmd.Parameters.AddWithValue(@"SurgeryName", comsurgeryname.Text);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable dtPublic = new DataTable();
@@ -396,7 +399,7 @@ Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@As
                 SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"Insert into Anesthetit_SurgeryName(IPDID,SurgeryName,Anesthetist) Values(@IPDID,@SurgeryName,@Anesthetist)", con);
-                cmd.Parameters.AddWithValue("@IPDID", id);
+                cmd.Parameters.AddWithValue("@IPDID", ipdid);
                 cmd.Parameters.AddWithValue("@SurgeryName", comsurgeryname.Text);
                 cmd.Parameters.AddWithValue("@Anesthetist", cmbAnesthetist.Text);
 
@@ -531,7 +534,7 @@ Values(@IPDID,@Surgical_Category,@Surgery_Name,@Surgeon_Name1,@Surgeon_Name2,@As
                 }
             }
         }
-       
+
         private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)

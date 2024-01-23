@@ -92,9 +92,10 @@ namespace Ruby_Hospital
             cmd.Parameters.AddWithValue("@Charges", Public_Opd_ProcedureCharges);
             cmd.ExecuteNonQuery();
             VerifyAmount = Convert.ToDecimal(label16.Text) + Convert.ToDecimal(Public_Opd_ProcedureCharges.ToString());
-                        
-            label16.Text = VerifyAmount.ToString();
-            
+            if (VerifyAmount >= 0)
+            {
+                label16.Text = VerifyAmount.ToString();
+            }
             show_ADD();
             Addsave = 1;
             button5.Enabled = true;
@@ -142,7 +143,14 @@ namespace Ruby_Hospital
             con.Open();
             SqlCommand cmd = new SqlCommand(@"UPDATE Billing_OPDProcedure SET OPDProcedureAmount=@OPDProcedureAmount where (OPDID=@OPDId)", con);
             cmd.Parameters.AddWithValue("@OPDId", txtID.Text);
-            cmd.Parameters.AddWithValue("@OPDProcedureAmount", label16.Text);
+            if (Convert.ToDecimal(label16.Text) <= 0)
+            {
+                cmd.Parameters.AddWithValue("@OPDProcedureAmount",0);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@OPDProcedureAmount", label16.Text);
+            }
             cmd.ExecuteNonQuery();
         }
         public void show_PatientDetails()
@@ -470,7 +478,7 @@ namespace Ruby_Hospital
             #endregion
             //button11.Visible = false;
             show_GrideviewDetails();
-            label17.Text = TotalOPDPro.ToString();
+            label17.Text = "Total Amount";
             lbRadiologyAmount.Text = TotalRadiology.ToString();
             lbTotalLab.Text = TotalLabAmount.ToString();
         }
