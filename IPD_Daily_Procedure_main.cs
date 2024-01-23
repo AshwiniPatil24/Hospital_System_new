@@ -16,7 +16,8 @@ namespace Ruby_Hospital
     {
         AutoCompleteStringCollection drugNamesCollection = new AutoCompleteStringCollection();
         public int Public_Ipd_ProcedureCharges;
-        int a;
+        int a;//PID
+        int b;//IPDID
         int LoadSave = 0;
         public int DeleteId;
         public int AddSave;
@@ -44,10 +45,11 @@ namespace Ruby_Hospital
           //  AdjustFormSize();
         }
 
-        public IPD_Daily_Procedure_main(int IPDI)
+        public IPD_Daily_Procedure_main(int PID,int IPDID)
         {
             InitializeComponent();
-            a = IPDI;
+            a = PID;
+            b = IPDID;
            // datatr();
             //  AdjustFormSize();
         }
@@ -91,7 +93,7 @@ namespace Ruby_Hospital
                 SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"Insert into AssignIPDLabTest (IPDID,LabTestTypeID,labTestID,LabTest,Charges,TestDate) Values(@IPDID,@LabTestTypeID,@labTestID,@LabTest,@Charges,@TestDate)", con);
-                cmd.Parameters.AddWithValue("@IPDID", a);
+                cmd.Parameters.AddWithValue("@IPDID", b);
                 cmd.Parameters.AddWithValue("@LabTestTypeID", Public_LabTestTypeID);
                 cmd.Parameters.AddWithValue("@labTestID", Public_IPD_procedureID);
                 cmd.Parameters.AddWithValue("@LabTest", comlab.Text);
@@ -116,8 +118,8 @@ namespace Ruby_Hospital
         {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"Select * From AssignIPDLabTest where IPDID=@a", con);
-            cmd.Parameters.AddWithValue(@"a", a);
+            SqlCommand cmd = new SqlCommand(@"Select * From AssignIPDLabTest where IPDID=@b", con);
+            cmd.Parameters.AddWithValue(@"b", b);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable dtPublic = new DataTable();
             adt.Fill(dtPublic);
@@ -197,7 +199,7 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Insert into Assign_IPDRadiology_test (IPDID,RadiologyID,RadiologyName,Charges,TestDate) Values(@IPDID,@RadiologyID,@RadiologyName,@Charges,@TestDate)", con);
-            cmd.Parameters.AddWithValue("@IPDID", a);
+            cmd.Parameters.AddWithValue("@IPDID", b);
             cmd.Parameters.AddWithValue("@RadiologyID", RadiologyTestId);
             cmd.Parameters.AddWithValue("@RadiologyName", comradiology.Text);
             cmd.Parameters.AddWithValue("@Charges", RadiologyCharges);
@@ -217,8 +219,8 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
         {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"Select * From Assign_IPDRadiology_test where IPDID=@a", con);
-            cmd.Parameters.AddWithValue(@"a", a);
+            SqlCommand cmd = new SqlCommand(@"Select * From Assign_IPDRadiology_test where IPDID=@b", con);
+            cmd.Parameters.AddWithValue(@"b", b);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable dtPublic = new DataTable();
 
@@ -260,8 +262,9 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
                          Ruby_Jamner123.IPD_Registration.Date_Of_Admission
 FROM            Ruby_Jamner123.IPD_Registration INNER JOIN
                          Ruby_Jamner123.Patient_Registration ON Ruby_Jamner123.IPD_Registration.Patient_Id = Ruby_Jamner123.Patient_Registration.PID
-WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
+WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id) and Ruby_Jamner123.IPD_Registration.IPDID = @ipdid", con);
             cmd.Parameters.AddWithValue(@"Patient_Id", a);
+            cmd.Parameters.AddWithValue(@"ipdid", b);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable o = new DataTable();
             adt.Fill(o);
@@ -276,7 +279,7 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Insert into Billing_IPDHosProc(IPDID,IPDHosProcAmount) Values(@IPDID,@IPDHosProcAmount)", con);
-            cmd.Parameters.AddWithValue("@IPDID", a);
+            cmd.Parameters.AddWithValue("@IPDID", b);
             cmd.Parameters.AddWithValue("@IPDHosProcAmount", lbhospTotalAmount.Text);
             cmd.ExecuteNonQuery();
         }
@@ -286,7 +289,7 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Update Billing_IPDHosProc set IPDHosProcAmount=@IPDHosProcAmount where IPDID=@IPDID", con);
-            cmd.Parameters.AddWithValue("@IPDID", a);
+            cmd.Parameters.AddWithValue("@IPDID", b);
             cmd.Parameters.AddWithValue("@IPDHosProcAmount", lbhospTotalAmount.Text);
             cmd.ExecuteNonQuery();
 
@@ -295,8 +298,8 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
         {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDHosProc where IPDID=@a", con);
-            cmd.Parameters.AddWithValue(@"a", a);
+            SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDHosProc where IPDID=@b", con);
+            cmd.Parameters.AddWithValue(@"b", b);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable dtPublic = new DataTable();
             adt.Fill(dtPublic);
@@ -310,7 +313,7 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Insert into Billing_IPDTotal_LabAmount(IPDID,TotalLabAmount) Values(@IPDID,@TotalLabAmount)", con);
-            cmd.Parameters.AddWithValue("@IPDID", a);
+            cmd.Parameters.AddWithValue("@IPDID", b);
             cmd.Parameters.AddWithValue("@TotalLabAmount", lbLabTest.Text);
             cmd.ExecuteNonQuery();
         }
@@ -320,7 +323,7 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Update Billing_IPDTotal_LabAmount set TotalLabAmount=@TotalLabAmount where IPDID=@IPDID", con);
-            cmd.Parameters.AddWithValue("@IPDID", a);
+            cmd.Parameters.AddWithValue("@IPDID", b);
             cmd.Parameters.AddWithValue("@TotalLabAmount", lbLabTest.Text);
             cmd.ExecuteNonQuery();
 
@@ -329,8 +332,8 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
         {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDTotal_LabAmount where IPDID=@a", con);
-            cmd.Parameters.AddWithValue(@"a", a);
+            SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDTotal_LabAmount where IPDID=@b", con);
+            cmd.Parameters.AddWithValue(@"b", b);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable dtPublic = new DataTable();
             adt.Fill(dtPublic);
@@ -344,7 +347,7 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Insert into Billing_IPDTotal_RadiologyA(IPDID,TotalRadiologyAmount) Values(@IPDID,@TotalRadiologyAmount)", con);
-            cmd.Parameters.AddWithValue("@IPDID", a);
+            cmd.Parameters.AddWithValue("@IPDID", b);
             cmd.Parameters.AddWithValue("@TotalRadiologyAmount", lbRadiologyAmount.Text);
             cmd.ExecuteNonQuery();
         }
@@ -354,7 +357,7 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Update Billing_IPDTotal_RadiologyA set TotalRadiologyAmount=@TotalRadiologyAmount where IPDID=@IPDID", con);
-            cmd.Parameters.AddWithValue("@IPDID", a);
+            cmd.Parameters.AddWithValue("@IPDID", b);
             cmd.Parameters.AddWithValue("@TotalRadiologyAmount", lbRadiologyAmount.Text);
             cmd.ExecuteNonQuery();
 
@@ -363,8 +366,8 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
         {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDTotal_RadiologyA where IPDID=@a", con);
-            cmd.Parameters.AddWithValue(@"a", a);
+            SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDTotal_RadiologyA where IPDID=@b", con);
+            cmd.Parameters.AddWithValue(@"b", b);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable dtPublic = new DataTable();
             adt.Fill(dtPublic);
@@ -430,8 +433,9 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
                          Ruby_Jamner123.IPD_Registration.Date_Of_Admission
 FROM            Ruby_Jamner123.IPD_Registration INNER JOIN
                          Ruby_Jamner123.Patient_Registration ON Ruby_Jamner123.IPD_Registration.Patient_Id = Ruby_Jamner123.Patient_Registration.PID
-WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
+WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)  and Ruby_Jamner123.IPD_Registration.IPDID = @ipdid", con);
             cmd.Parameters.AddWithValue(@"Patient_Id", a);
+            cmd.Parameters.AddWithValue(@"ipdid", b);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable o = new DataTable();
             adt.Fill(o);
@@ -448,8 +452,9 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
             SqlCommand cmd = new SqlCommand(@"SELECT        Ruby_Jamner123.IPD_Registration.Room_Segment, Ruby_Jamner123.IPD_Registration.Bed_No
 FROM            Ruby_Jamner123.IPD_Registration INNER JOIN
                          Ruby_Jamner123.Patient_Registration ON Ruby_Jamner123.IPD_Registration.Patient_Id = Ruby_Jamner123.Patient_Registration.PID
-WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
+WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id) and Ruby_Jamner123.IPD_Registration.IPDID = @ipdid", con);
             cmd.Parameters.AddWithValue(@"Patient_Id", a);
+            cmd.Parameters.AddWithValue(@"ipdid", b);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable o = new DataTable();
             adt.Fill(o);
@@ -484,10 +489,8 @@ WHERE        (Ruby_Jamner123.IPD_Registration.Patient_Id = @Patient_Id)", con);
         {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"SELECT        BedNo, RoomSegmentID
-FROM            Ruby_Jamner123.Master_IPDBedNo
-WHERE        (RoomSegmentID = @RoomSegmentID)", con);
-            cmd.Parameters.AddWithValue(@"RoomSegmentID", newRoomS.SelectedIndex);
+            SqlCommand cmd = new SqlCommand(@"SELECT BedNo, RoomSegmentID FROM Ruby_Jamner123.Master_IPDBedNo WHERE (RoomSegmentID = @RoomSegmentID) and isvacant = 0", con);
+            cmd.Parameters.AddWithValue(@"RoomSegmentID", newRoomS.SelectedIndex + 1);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable o = new DataTable();
             adt.Fill(o);
@@ -533,7 +536,7 @@ WHERE        (RoomSegmentID = @RoomSegmentID)", con);
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Insert into IpdPatient_HospitalProc (IPD_ID,HospitalProc_Name,Charges,ISActive) Values(@IPD_ID,@HospitalProc_Name,@Charges,@ISActive)", con);
-            cmd.Parameters.AddWithValue("@IPD_ID", a);
+            cmd.Parameters.AddWithValue("@IPD_ID", b);
             cmd.Parameters.AddWithValue("@HospitalProc_Name", cmbHospitalMain.Text);
             cmd.Parameters.AddWithValue("@Charges", Public_HosProcCharges);
             cmd.Parameters.AddWithValue("@ISActive", "1");
@@ -553,8 +556,8 @@ WHERE        (RoomSegmentID = @RoomSegmentID)", con);
         {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"Select * From IpdPatient_HospitalProc where IPD_ID=@a", con);
-            cmd.Parameters.AddWithValue(@"a", a);
+            SqlCommand cmd = new SqlCommand(@"Select * From IpdPatient_HospitalProc where IPD_ID=@b", con);
+            cmd.Parameters.AddWithValue(@"b", b);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable dtPublic = new DataTable();
 
@@ -594,8 +597,8 @@ WHERE        (RoomSegmentID = @RoomSegmentID)", con);
 
                 SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
                 con.Open();
-                SqlCommand cmd = new SqlCommand(@"Select * From IPD_PatientDrugList where IPDID=@a", con);
-                cmd.Parameters.AddWithValue(@"a", a);
+                SqlCommand cmd = new SqlCommand(@"Select * From IPD_PatientDrugList where IPDID=@b", con);
+                cmd.Parameters.AddWithValue(@"b", b);
                 SqlDataAdapter adt = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
 
@@ -624,17 +627,94 @@ WHERE        (RoomSegmentID = @RoomSegmentID)", con);
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (comboBox3.Text == "")
+            {
+                MessageBox.Show("No Bed available...");
+                return;
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
+                con.Open();
+                SqlCommand cmd = new SqlCommand(@"update   IPD_Registration  set  Room_Segment=@Room_Segment, Bed_No=@Bed_No
+
+WHERE        IPDID = @Id", con);
+                cmd.Parameters.AddWithValue("@Id", b);
+                cmd.Parameters.AddWithValue("@Room_Segment", newRoomS.Text);
+                cmd.Parameters.AddWithValue("@Bed_No", comboBox3.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                updateBed();
+                updateOldBed();
+                assignBed();
+                MessageBox.Show(" Room Segment and Bed NUmber Updated..");
+                Roomsegment();
+                Beddata();
+                Roomshowdata();
+            }
+        }
+
+        public void updateBed()
+        {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
-            SqlCommand cmd = new SqlCommand(@"update   IPD_Registration  set  Room_Segment=@Room_Segment, Bed_No=@Bed_No
-
-WHERE        (Patient_Id = @Patient_Id)", con);
-            cmd.Parameters.AddWithValue(@"Patient_Id", a);
-            cmd.Parameters.AddWithValue("@Room_Segment", newRoomS.Text);
-            cmd.Parameters.AddWithValue("@Bed_No", comboBox3.Text);
+            SqlCommand cmd = new SqlCommand(@"update Master_IPDBedNo set isvacant = 1 where roomsegmentid = @rs and bedno = @bno", con);
+            cmd.Parameters.AddWithValue("@rs", newRoomS.SelectedIndex + 1);
+            cmd.Parameters.AddWithValue("@bno", comboBox3.Text);
             cmd.ExecuteNonQuery();
             con.Close();
-            MessageBox.Show(" Room Segment and Bed NUmber Updated..");
+        }
+
+        public int getID()
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"select max(ID) from ipd_assignedbeddetails where ipdid = @id", con);
+            cmd.Parameters.AddWithValue("@id", b);
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            return id;
+        }
+        public void updateOldBed()
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(@"update ipd_assignedbeddetails set To_Date = @date where id=@id", con);
+            cmd.Parameters.AddWithValue("@date", DateTime.Now.Date.ToString("dd-MM-yyyy"));
+            cmd.Parameters.AddWithValue("@id", getID());
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void assignBed()
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
+            con.Open();
+            int charge = 0;
+            SqlCommand cmd = new SqlCommand(@"select charge from Master_IPDRoomSegment where name = @name", con);
+            cmd.Parameters.AddWithValue("@name", newRoomS.Text);
+            SqlDataReader r = cmd.ExecuteReader();
+            if (r.Read())
+            {
+                charge = Convert.ToInt32(r[0]);
+            }
+            r.Close();
+            SqlCommand cmd2 = new SqlCommand(@"insert into ipd_assignedbeddetails(IPDID,Bed_Segment,Bed_No,From_Date,Charges,Nursing_Charge) values(@ipdid,@room_seg,@bed_no,@bedassign_date,@charge,@nursingChrge)", con);
+            cmd2.Parameters.AddWithValue("@ipdid", b);
+            cmd2.Parameters.AddWithValue("@room_seg", newRoomS.Text);
+            cmd2.Parameters.AddWithValue("@bed_no", comboBox3.Text);
+            cmd2.Parameters.AddWithValue("@bedassign_date", System.DateTime.Now.Date.ToString("dd-MM-yyyy"));
+            cmd2.Parameters.AddWithValue("@charge", charge);
+            if (newRoomS.Text == "ICU")
+            {
+                cmd2.Parameters.AddWithValue("@nursingChrge", 500);
+            }
+            if (newRoomS.Text == "Genral Ward")
+            {
+                cmd2.Parameters.AddWithValue("@nursingChrge", 300);
+            }
+            cmd2.ExecuteNonQuery();
+            con.Close();
         }
 
         public void Save()
@@ -642,7 +722,7 @@ WHERE        (Patient_Id = @Patient_Id)", con);
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Insert into IPD_PatientDrugList (IPDID,Date,DrugName,ForDays,BeforeBreakfast,BeforeLunch,BeforeDinner,MorningDose,AfternoonDose,NightDose) Values(@IPDID,@Date,@DrugName,@ForDays,@BeforeBreakfast,@BeforeLunch,@BeforeDinner,@MorningDose,@AfternoonDose,@NightDose)", con);
-            cmd.Parameters.AddWithValue("@IPDID", a);
+            cmd.Parameters.AddWithValue("@IPDID", b);
             cmd.Parameters.AddWithValue("@Date", System.DateTime.Now);
             cmd.Parameters.AddWithValue("@DrugName", txtEnterDrug.Text);
             cmd.Parameters.AddWithValue("@ForDays", txtDays.Text);
@@ -897,7 +977,7 @@ WHERE        (Patient_Id = @Patient_Id)", con);
 
         private void button3_Click(object sender, EventArgs e)
         {
-            IPD_Surgical_Procedure o = new IPD_Surgical_Procedure(a);
+            IPD_Surgical_Procedure o = new IPD_Surgical_Procedure(a,b);
             o.ShowDialog();
         }
 
@@ -959,8 +1039,8 @@ WHERE        (Patient_Id = @Patient_Id)", con);
 
                         SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
                         con.Open();
-                        SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDTotal_LabAmount where IPDID=@a", con);
-                        cmd.Parameters.AddWithValue(@"a", a);
+                        SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDTotal_LabAmount where IPDID=@b", con);
+                        cmd.Parameters.AddWithValue(@"b", b);
                         SqlDataAdapter adt = new SqlDataAdapter(cmd);
                         DataTable dtPublic = new DataTable();
                         adt.Fill(dtPublic);
@@ -1098,8 +1178,8 @@ WHERE        (Patient_Id = @Patient_Id)", con);
 
                     SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDHosProc where IPDID=@a", con);
-                    cmd.Parameters.AddWithValue(@"a", a);
+                    SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDHosProc where IPDID=@b", con);
+                    cmd.Parameters.AddWithValue(@"b", b);
                     SqlDataAdapter adt = new SqlDataAdapter(cmd);
                     DataTable dtPublic = new DataTable();
                     adt.Fill(dtPublic);
@@ -1137,8 +1217,8 @@ WHERE        (Patient_Id = @Patient_Id)", con);
 
                     SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDTotal_RadiologyA where IPDID=@a", con);
-                    cmd.Parameters.AddWithValue(@"a", a);
+                    SqlCommand cmd = new SqlCommand(@"Select * From Billing_IPDTotal_RadiologyA where IPDID=@b", con);
+                    cmd.Parameters.AddWithValue(@"b", b);
                     SqlDataAdapter adt = new SqlDataAdapter(cmd);
                     DataTable dtPublic = new DataTable();
                     adt.Fill(dtPublic);
@@ -1163,6 +1243,13 @@ WHERE        (Patient_Id = @Patient_Id)", con);
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void newRoomS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox3.DataSource = null;
+            comboBox3.Items.Clear();
+            Beddata();
         }
     }
 }

@@ -38,11 +38,7 @@ namespace Ruby_Hospital
 
         }
 
-        private void comboBox9_Leave(object sender, EventArgs e)
-        {
-
-
-        }
+        
 
         private void txtmail_TextChanged(object sender, EventArgs e)
         {
@@ -254,84 +250,138 @@ namespace Ruby_Hospital
         {
             try
             {
-
-                SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
-                con.Open();
-                SqlCommand cmd = new SqlCommand(@"Insert Into Patient_Registration (Patient_ID,Prefixes,Name,Gender,DOB,Age,Marital_Status,Mobile_Number,
+                if (txtpurpose.SelectedItem.Equals("---Select---"))
+                {
+                    MessageBox.Show("Please select Purpose...");
+                    return;
+                }
+                else
+                {
+                    SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"Insert Into Patient_Registration (Patient_ID,Prefixes,Name,Gender,DOB,Age,Marital_Status,Mobile_Number,
                                                Email,Adhaar_ID,Weight,Purpose,Alternate_Mobile,Nationality,Remark,Dr_Name,AROGYA_Card,Registration_Charges,Consultation_Charges,
                                                Address,State,District,Taluka,City,Doctors_Name,Referred_By,Date) Values (@Patient_ID,@Prefixes,@Name,@Gender,@DOB,@Age,@Marital_Status,@Mobile_Number,
                                                @Email,@Adhaar_ID,@Weight,@Purpose,@Alternate_Mobile,@Nationality,@Remark,@Dr_Name,@AROGYA_Card,@Registration_Charges,@Consultation_Charges,
 
                                                @Address,@State,@District,@Taluka,@City,@Doctors_Name,@Referred_By,@Date)", con);
-                cmd.Parameters.AddWithValue("@Patient_ID", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@Patient_ID", textBox1.Text);
 
-                //cmd.Parameters.AddWithValue("@Patient_ID", "RSHJ001");b
+                    //cmd.Parameters.AddWithValue("@Patient_ID", "RSHJ001");b
 
-                cmd.Parameters.AddWithValue("@Prefixes", txtprofix.Text);
-                cmd.Parameters.AddWithValue("@Name", txtname.Text);
-                if (btnmale.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@Gender", "Male");
-                }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@Gender", "Female");
-                }
-                cmd.Parameters.AddWithValue("@DOB", txtdate.Text);
-                cmd.Parameters.AddWithValue("@Age", txtage.Text);
-                cmd.Parameters.AddWithValue("@Marital_Status", cbmmaritalstatus.Text);
-                cmd.Parameters.AddWithValue("@Mobile_Number", txtmobilenumber.Text);
-                cmd.Parameters.AddWithValue("@Email", txtmail.Text);
-                cmd.Parameters.AddWithValue("@Adhaar_ID", txtaadhaar.Text);
-                cmd.Parameters.AddWithValue("@Weight", txtweight.Text);
-                cmd.Parameters.AddWithValue("@Purpose", txtpurpose.Text);
-                cmd.Parameters.AddWithValue("@Alternate_Mobile", txtalternateno.Text);
-                cmd.Parameters.AddWithValue("@Nationality", txtnationality.Text);
-                cmd.Parameters.AddWithValue("@Remark", txtremark.Text);
-                cmd.Parameters.AddWithValue("@Dr_Name", txtDrName.Text);
-                cmd.Parameters.AddWithValue("@AROGYA_Card", txtarogyacard.Text);
-                cmd.Parameters.AddWithValue("@Registration_Charges", txtregicharges.Text);
-                cmd.Parameters.AddWithValue("@Consultation_Charges", txtconsultacharges.Text);
-                cmd.Parameters.AddWithValue("@Address", txtaddress.Text);
-                cmd.Parameters.AddWithValue("@State", txtstate.Text);
-                cmd.Parameters.AddWithValue("@District", txtdistrict.Text);
-                cmd.Parameters.AddWithValue("@Taluka", txttaluka.Text);
-                cmd.Parameters.AddWithValue("@City", txtcity.Text);
-                cmd.Parameters.AddWithValue("@Doctors_Name", cmbDoctor.Text);
-                cmd.Parameters.AddWithValue("@Referred_By", cmbReferred.Text);
+                    cmd.Parameters.AddWithValue("@Prefixes", txtprofix.Text);
 
-                cmd.Parameters.AddWithValue("@Date", dtpAdmissonDate.Text);
+                    if (txtweight.Text.Equals("Enter the Weight "))
+                    {
+                        cmd.Parameters.AddWithValue("@Weight", txtweight.Text = "0");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Weight", txtweight.Text);
+                    }
+                    if (txtname.Text.Equals("Fisrtname           Middle             Lastname\n"))
+                    {
+                        MessageBox.Show("Please enter name...");
+                        return;
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Name", txtname.Text);
+                    }
 
+                    if (btnmale.Checked == true)
+                    {
+                        cmd.Parameters.AddWithValue("@Gender", "Male");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Gender", "Female");
+                    }
+                    cmd.Parameters.AddWithValue("@DOB", txtdate.Text);
+                    if (txtage.Text.Equals("Enter the Age"))
+                    {
+                        cmd.Parameters.AddWithValue("@Age", txtage.Text = "0");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Age", txtage.Text);
+                    }
+                    cmd.Parameters.AddWithValue("@Marital_Status", cbmmaritalstatus.Text);
+                    cmd.Parameters.AddWithValue("@Mobile_Number", txtmobilenumber.Text);
+                    cmd.Parameters.AddWithValue("@Email", txtmail.Text);
+                    cmd.Parameters.AddWithValue("@Adhaar_ID", txtaadhaar.Text);
+                    cmd.Parameters.AddWithValue("@Alternate_Mobile", txtalternateno.Text);
+                    cmd.Parameters.AddWithValue("@Nationality", txtnationality.Text);
+                    cmd.Parameters.AddWithValue("@Remark", txtremark.Text);
+                    cmd.Parameters.AddWithValue("@Dr_Name", txtDrName.Text);
+                    cmd.Parameters.AddWithValue("@AROGYA_Card", txtarogyacard.Text);
+                    cmd.Parameters.AddWithValue("@Registration_Charges", txtregicharges.Text);
 
-                cmd.ExecuteNonQuery();
-                con.Close();
-                if (txtpurpose.Text == "IPD")
-                {
-                    MessageBox.Show("Record Added Successfully to IPD...");
-                    btnGOTOIPD.Visible = true;
-                    btnsave.Visible = false;
-                    btnPrint.Visible = false;
-                }
-                if (txtpurpose.Text == "Only Test")
-                {
-                    generateAutoOId();
-                    MessageBox.Show("Record Added Successfully ...");
-                    OPDRegistration();
-                    btnGOTOIPD.Visible = false;
-                    btnsave.Visible = false;
-                    btnPrint.Visible = false;
-                    button4.Visible = true;
-                }
-                if (txtpurpose.Text == "OPD")
-                {
-                    generateAutoOId();
-                    MessageBox.Show("Record Added Successfully");
-                    btnPrint_Click(sender, e);
-                   OPDRegistration();
-                    btnGOTOIPD.Visible = false;
-                    btnsave.Visible = false;
-                    btnPrint.Visible = false;
-                    this.Close();
+                    if (txtconsultacharges.Text.Equals("Enter Charges"))
+                    {
+                        cmd.Parameters.AddWithValue("@Consultation_Charges", txtconsultacharges.Text = "0");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Consultation_Charges", txtconsultacharges.Text);
+                    }
+
+                    cmd.Parameters.AddWithValue("@Address", txtaddress.Text);
+                    cmd.Parameters.AddWithValue("@State", txtstate.Text);
+                    cmd.Parameters.AddWithValue("@District", txtdistrict.Text);
+                    cmd.Parameters.AddWithValue("@Taluka", txttaluka.Text);
+                    cmd.Parameters.AddWithValue("@City", txtcity.Text);
+                    if (cmbDoctor.Text.Equals("---Select---"))
+                    {
+                        MessageBox.Show("Please select Doctor...");
+                        return;
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Doctors_Name", cmbDoctor.Text);
+                    }
+                    if (cmbReferred.Text.Equals("---Select---"))
+                    {
+                        MessageBox.Show("Please select Reffered Doctor...");
+                        return;
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Referred_By", cmbReferred.Text);
+                    }
+                    cmd.Parameters.AddWithValue("@Date", dtpAdmissonDate.Text);
+                    cmd.Parameters.AddWithValue("@Purpose", txtpurpose.Text);
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    if (txtpurpose.Text == "IPD")
+                    {
+                        MessageBox.Show("Record Added Successfully to IPD...");
+                        btnGOTOIPD.Visible = true;
+                        btnsave.Visible = false;
+                        btnPrint.Visible = false;
+                    }
+                    if (txtpurpose.Text == "Only Test")
+                    {
+                        generateAutoOId();
+                        MessageBox.Show("Record Added Successfully ...");
+                        OPDRegistration();
+                        btnGOTOIPD.Visible = false;
+                        btnsave.Visible = false;
+                        btnPrint.Visible = false;
+                        button4.Visible = true;
+                    }
+                    if (txtpurpose.Text == "OPD")
+                    {
+                        generateAutoOId();
+                        MessageBox.Show("Record Added Successfully");
+                        //btnPrint_Click(sender, e);
+                        OPDRegistration();
+                        btnGOTOIPD.Visible = false;
+                        btnsave.Visible = false;
+                        btnPrint.Visible = false;
+                        this.Close();
+                    }
                 }
             }
             catch (Exception ex)
@@ -457,10 +507,6 @@ namespace Ruby_Hospital
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -543,7 +589,7 @@ namespace Ruby_Hospital
 
         private void txtname_Enter(object sender, EventArgs e)
         {
-            if (txtname.Text == "Fisrtname           Middle             Lastname")
+            if (txtname.Text == "Fisrtname           Middle             Lastname\n")
             {
                 txtname.Text = "";
                 txtname.ForeColor = Color.Black;
@@ -554,7 +600,7 @@ namespace Ruby_Hospital
         {
             if (txtname.Text == "")
             {
-                txtname.Text = "Fisrtname           Middle             Lastname";
+                txtname.Text = "Fisrtname           Middle             Lastname\n";
                 txtname.ForeColor = Color.Gray;
             }
         }
@@ -646,10 +692,9 @@ namespace Ruby_Hospital
         private void txtconsultacharges_Enter(object sender, EventArgs e)
         {
 
-            if (txtconsultacharges.Text == "")
-
+            if (txtconsultacharges.Text == "Enter Charges")
             {
-                txtconsultacharges.Text = "";
+                txtconsultacharges.Text = "0";
                 txtconsultacharges.ForeColor = Color.Black;
             }
         }
@@ -658,6 +703,7 @@ namespace Ruby_Hospital
         {
             if (txtconsultacharges.Text == "")
             {
+                txtconsultacharges.Text = "Enter Charges";
                 txtconsultacharges.ForeColor = Color.Gray;
             }
         }
@@ -746,8 +792,10 @@ namespace Ruby_Hospital
             SqlDataAdapter s = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             s.Fill(dt);
-           
-            PatientBindIPD = Convert.ToInt32(dt.Rows[0]["PID"]);
+            if (dt.Rows.Count > 0)
+            {
+                PatientBindIPD = Convert.ToInt32(dt.Rows[0]["PID"]);
+            }
             IPD_Registration o = new IPD_Registration(PatientBindIPD);
             o.Show();
         }
@@ -779,20 +827,20 @@ namespace Ruby_Hospital
 
         private void txtweight_Enter(object sender, EventArgs e)
         {
-            //if (txtweight.Text == "Enter the Weight")
-            //{
-            //    txtweight.Text = "";
-            //    txtweight.ForeColor = Color.Black;
-            //}
+            if (txtweight.Text == "Enter the Weight")
+            {
+                txtweight.Text = "";
+                txtweight.ForeColor = Color.Black;
+            }
         }
 
         private void txtweight_Leave(object sender, EventArgs e)
         {
-            //if (txtweight.Text == "")
-            //{
-            //    txtweight.Text = "Enter the Weight";
-            //    txtweight.ForeColor = Color.Gray;
-            //}
+            if (txtweight.Text == "")
+            {
+                txtweight.Text = "Enter the Weight";
+                txtweight.ForeColor = Color.Gray;
+            }
         }
 
         private void txtalternateno_Enter(object sender, EventArgs e)
@@ -862,6 +910,7 @@ namespace Ruby_Hospital
                 cmbDoctor.DisplayMember = "Dr_Name";
                 cmbDoctor.ValueMember = "DR_ID";
                 
+
                 DataRow drr3;
                 drr3 = dt.NewRow();
                 drr3["DR_ID"] = "0";
@@ -871,10 +920,11 @@ namespace Ruby_Hospital
 
 
                 //dt1.DefaultView.Sort = "PurposeId asc";
-                cmbDoctor.DataSource = dt;
-                cmbDoctor.DisplayMember = "Dr_Name";
-                cmbDoctor.ValueMember = "DR_ID";
-                cmbDoctor.Text = "--Select Doctor--";
+                //cmbDoctor.DataSource = dt;
+                //cmbDoctor.DisplayMember = "Dr_Name";
+                //cmbDoctor.ValueMember = "DR_ID";
+               
+
             }
             con.Close();
 
@@ -902,10 +952,10 @@ namespace Ruby_Hospital
 
 
                 //dt1.DefaultView.Sort = "PurposeId asc";
-                cmbReferred.DataSource = dt;
-                cmbReferred.DisplayMember = "Referred_Name";
-                cmbReferred.ValueMember = "ReferredID";
-                cmbReferred.Text = "--Select Doctor--";
+                //cmbReferred.DataSource = dt;
+                //cmbReferred.DisplayMember = "Referred_Name";
+                //cmbReferred.ValueMember = "ReferredID";
+                //cmbReferred.Text = "--Select Doctor--";
             }
             con.Close();
         }
@@ -1092,6 +1142,63 @@ namespace Ruby_Hospital
         private void txtweight_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtconsultacharges_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cmbReferred_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbReferred.Text = cmbReferred.SelectedItem.ToString();
+            //Referred_Doctor();
+        }
+
+        private void cmbDoctor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbDoctor.Text = cmbDoctor.SelectedItem.ToString();
+            //FetchDoctor();
+        }
+
+        private void cmbDoctor_Leave(object sender, EventArgs e)
+        {
+            if(cmbDoctor.Text == "")
+            {
+                cmbDoctor.Text = "---Select---";
+            }
+        }
+
+        private void cmbReferred_Leave(object sender, EventArgs e)
+        {
+            if(cmbReferred.Text == "")
+            {
+                cmbReferred.Text = "---Select---";
+            }
+        }
+
+        private void cmbDoctor_Enter(object sender, EventArgs e)
+        {
+            if(cmbDoctor.Text == "---Select---")
+            {
+                cmbDoctor.Text = "";
+            }
+        }
+
+        private void cmbReferred_Enter(object sender, EventArgs e)
+        {
+            if (cmbReferred.Text == "---Select---")
+            {
+                cmbReferred.Text = "";
+            }
         }
     }
 }

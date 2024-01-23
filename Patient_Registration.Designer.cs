@@ -38,11 +38,11 @@ namespace Ruby_Hospital
             this.btnGOTOIPD = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label16 = new System.Windows.Forms.Label();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.cmbReferred = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.cmbDoctor = new System.Windows.Forms.ComboBox();
             this.btnsave = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -133,7 +133,6 @@ namespace Ruby_Hospital
             this.panel1.Controls.Add(this.cmbDoctor);
             this.panel1.Controls.Add(this.btnsave);
             this.panel1.Name = "panel1";
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox3
             // 
@@ -142,6 +141,7 @@ namespace Ruby_Hospital
             resources.ApplyResources(this.pictureBox3, "pictureBox3");
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // button4
             // 
@@ -186,22 +186,14 @@ namespace Ruby_Hospital
             this.label16.ForeColor = System.Drawing.Color.Black;
             this.label16.Name = "label16";
             // 
-            // btnPrint
-            // 
-            resources.ApplyResources(this.btnPrint, "btnPrint");
-            this.btnPrint.BackColor = System.Drawing.Color.Goldenrod;
-            this.btnPrint.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btnPrint.FlatAppearance.BorderSize = 0;
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // cmbReferred
             // 
             resources.ApplyResources(this.cmbReferred, "cmbReferred");
             this.cmbReferred.FormattingEnabled = true;
             this.cmbReferred.Name = "cmbReferred";
+            this.cmbReferred.SelectedIndexChanged += new System.EventHandler(this.cmbReferred_SelectedIndexChanged);
+            this.cmbReferred.Enter += new System.EventHandler(this.cmbReferred_Enter);
+            this.cmbReferred.Leave += new System.EventHandler(this.cmbReferred_Leave);
             // 
             // label23
             // 
@@ -215,7 +207,9 @@ namespace Ruby_Hospital
             resources.ApplyResources(this.cmbDoctor, "cmbDoctor");
             this.cmbDoctor.FormattingEnabled = true;
             this.cmbDoctor.Name = "cmbDoctor";
-            this.cmbDoctor.Leave += new System.EventHandler(this.comboBox9_Leave);
+            this.cmbDoctor.SelectedIndexChanged += new System.EventHandler(this.cmbDoctor_SelectedIndexChanged);
+            this.cmbDoctor.Enter += new System.EventHandler(this.cmbDoctor_Enter);
+            this.cmbDoctor.Leave += new System.EventHandler(this.cmbDoctor_Leave);
             // 
             // btnsave
             // 
@@ -227,6 +221,17 @@ namespace Ruby_Hospital
             this.btnsave.Name = "btnsave";
             this.btnsave.UseVisualStyleBackColor = false;
             this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
+            // 
+            // btnPrint
+            // 
+            resources.ApplyResources(this.btnPrint, "btnPrint");
+            this.btnPrint.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // panel2
             // 
@@ -346,6 +351,7 @@ namespace Ruby_Hospital
             this.txtconsultacharges.Name = "txtconsultacharges";
             this.txtconsultacharges.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtconsultacharges_MouseClick_1);
             this.txtconsultacharges.Enter += new System.EventHandler(this.txtconsultacharges_Enter);
+            this.txtconsultacharges.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtconsultacharges_KeyPress);
             this.txtconsultacharges.Leave += new System.EventHandler(this.txtconsultacharges_Leave);
             // 
             // txtregicharges

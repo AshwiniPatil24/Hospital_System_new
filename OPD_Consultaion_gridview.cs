@@ -68,8 +68,6 @@ namespace Ruby_Hospital
             {
                 dataGridView1.DataSource = o;
             }
-
-
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
