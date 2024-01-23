@@ -29,11 +29,11 @@ namespace Ruby_Hospital
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IPD_Daily_Procedure_main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
@@ -91,10 +91,10 @@ namespace Ruby_Hospital
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.LabTest = new System.Windows.Forms.TabPage();
-            this.button16 = new System.Windows.Forms.Button();
-            this.lbLabTest = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbLabTest = new System.Windows.Forms.Label();
+            this.button16 = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button17 = new System.Windows.Forms.Button();
             this.cmblabtest = new System.Windows.Forms.ComboBox();
@@ -299,6 +299,7 @@ namespace Ruby_Hospital
             this.newRoomS.Name = "newRoomS";
             this.newRoomS.Size = new System.Drawing.Size(307, 31);
             this.newRoomS.TabIndex = 3;
+            this.newRoomS.SelectedIndexChanged += new System.EventHandler(this.newRoomS_SelectedIndexChanged);
             this.newRoomS.TextChanged += new System.EventHandler(this.newRoomS_TextChanged);
             // 
             // label1
@@ -339,6 +340,7 @@ namespace Ruby_Hospital
             // BedNo
             // 
             this.BedNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BedNo.Enabled = false;
             this.BedNo.FormattingEnabled = true;
             this.BedNo.Location = new System.Drawing.Point(225, 88);
             this.BedNo.Name = "BedNo";
@@ -348,6 +350,7 @@ namespace Ruby_Hospital
             // oldroom
             // 
             this.oldroom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.oldroom.Enabled = false;
             this.oldroom.FormattingEnabled = true;
             this.oldroom.Location = new System.Drawing.Point(225, 41);
             this.oldroom.Name = "oldroom";
@@ -841,11 +844,11 @@ namespace Ruby_Hospital
             // Delete
             // 
             this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle11.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle11.NullValue")));
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle1.NullValue")));
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
             this.Delete.Frozen = true;
             this.Delete.HeaderText = "Delete";
             this.Delete.Image = global::Ruby_Hospital.Properties.Resources.InShot_20230705_155710269;
@@ -865,48 +868,6 @@ namespace Ruby_Hospital
             this.LabTest.UseVisualStyleBackColor = true;
             this.LabTest.Click += new System.EventHandler(this.LabTest_Click);
             // 
-            // button16
-            // 
-            this.button16.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button16.BackColor = System.Drawing.Color.Silver;
-            this.button16.Enabled = false;
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.ForeColor = System.Drawing.Color.White;
-            this.button16.Location = new System.Drawing.Point(542, 392);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(148, 35);
-            this.button16.TabIndex = 85;
-            this.button16.Text = "Save";
-            this.button16.UseVisualStyleBackColor = false;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // lbLabTest
-            // 
-            this.lbLabTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbLabTest.AutoSize = true;
-            this.lbLabTest.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLabTest.ForeColor = System.Drawing.Color.Black;
-            this.lbLabTest.Location = new System.Drawing.Point(142, 402);
-            this.lbLabTest.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbLabTest.Name = "lbLabTest";
-            this.lbLabTest.Size = new System.Drawing.Size(54, 25);
-            this.lbLabTest.TabIndex = 82;
-            this.lbLabTest.Text = "0.00";
-            // 
-            // label22
-            // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(34, 402);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(104, 25);
-            this.label22.TabIndex = 81;
-            this.label22.Text = "Total  Rs .";
-            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -925,6 +886,48 @@ namespace Ruby_Hospital
             this.groupBox3.Size = new System.Drawing.Size(1292, 448);
             this.groupBox3.TabIndex = 84;
             this.groupBox3.TabStop = false;
+            // 
+            // lbLabTest
+            // 
+            this.lbLabTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbLabTest.AutoSize = true;
+            this.lbLabTest.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLabTest.ForeColor = System.Drawing.Color.Black;
+            this.lbLabTest.Location = new System.Drawing.Point(142, 402);
+            this.lbLabTest.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbLabTest.Name = "lbLabTest";
+            this.lbLabTest.Size = new System.Drawing.Size(54, 25);
+            this.lbLabTest.TabIndex = 82;
+            this.lbLabTest.Text = "0.00";
+            // 
+            // button16
+            // 
+            this.button16.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button16.BackColor = System.Drawing.Color.Silver;
+            this.button16.Enabled = false;
+            this.button16.FlatAppearance.BorderSize = 0;
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.ForeColor = System.Drawing.Color.White;
+            this.button16.Location = new System.Drawing.Point(542, 392);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(148, 35);
+            this.button16.TabIndex = 85;
+            this.button16.Text = "Save";
+            this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(34, 402);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(104, 25);
+            this.label22.TabIndex = 81;
+            this.label22.Text = "Total  Rs .";
             // 
             // panel3
             // 
@@ -1023,14 +1026,14 @@ namespace Ruby_Hospital
             this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView5.Location = new System.Drawing.Point(0, 0);
             this.dataGridView5.Name = "dataGridView5";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView5.Size = new System.Drawing.Size(589, 278);
             this.dataGridView5.TabIndex = 0;
             this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
@@ -1038,10 +1041,10 @@ namespace Ruby_Hospital
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle9.NullValue")));
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewImageColumn1.Frozen = true;
             this.dataGridViewImageColumn1.HeaderText = "Delete";
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -1208,7 +1211,7 @@ namespace Ruby_Hospital
             this.tabPage5.Location = new System.Drawing.Point(4, 33);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1292, 399);
+            this.tabPage5.Size = new System.Drawing.Size(1292, 433);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "    Print Certificates    ";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1221,7 +1224,7 @@ namespace Ruby_Hospital
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(712, 202);
+            this.button1.Location = new System.Drawing.Point(712, 219);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(393, 52);
             this.button1.TabIndex = 40;
@@ -1236,7 +1239,7 @@ namespace Ruby_Hospital
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.ForeColor = System.Drawing.Color.White;
-            this.button14.Location = new System.Drawing.Point(148, 105);
+            this.button14.Location = new System.Drawing.Point(148, 122);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(393, 52);
             this.button14.TabIndex = 37;
@@ -1251,7 +1254,7 @@ namespace Ruby_Hospital
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.Location = new System.Drawing.Point(148, 202);
+            this.button13.Location = new System.Drawing.Point(148, 219);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(393, 52);
             this.button13.TabIndex = 38;
@@ -1266,7 +1269,7 @@ namespace Ruby_Hospital
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(712, 103);
+            this.button12.Location = new System.Drawing.Point(712, 120);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(393, 52);
             this.button12.TabIndex = 39;
@@ -1297,11 +1300,11 @@ namespace Ruby_Hospital
             // dataGridViewImageColumn2
             // 
             this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle12.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle12.NullValue")));
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewImageColumn2.Frozen = true;
             this.dataGridViewImageColumn2.HeaderText = "Delete";
             this.dataGridViewImageColumn2.Image = global::Ruby_Hospital.Properties.Resources.InShot_20230705_155710269;

@@ -87,7 +87,7 @@ namespace Ruby_Hospital
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Margin = new System.Windows.Forms.Padding(50, 5, 50, 90);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(148, 36);
+            this.label10.Size = new System.Drawing.Size(190, 44);
             this.label10.TabIndex = 2;
             this.label10.Text = "IPD Billing";
             // 
@@ -125,12 +125,11 @@ namespace Ruby_Hospital
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(390, 165);
             this.label9.Margin = new System.Windows.Forms.Padding(50, 5, 50, 90);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(164, 23);
+            this.label9.Size = new System.Drawing.Size(204, 28);
             this.label9.TabIndex = 54;
             this.label9.Text = "Seach Patient By";
             // 
@@ -142,7 +141,7 @@ namespace Ruby_Hospital
             this.comboBox1.Location = new System.Drawing.Point(557, 162);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(50, 5, 50, 90);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 29);
+            this.comboBox1.Size = new System.Drawing.Size(140, 31);
             this.comboBox1.TabIndex = 53;
             // 
             // textBox1
@@ -192,7 +191,7 @@ namespace Ruby_Hospital
             // 
             // IPD_Billng_Gridview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.pictureBox4);

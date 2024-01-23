@@ -16,7 +16,8 @@ namespace Ruby_Hospital
         string IIDA = "IPD/RSHJ";
         int countpatient;
         int abc;
-        int A;
+        int A;//PID
+        int ipd_id;//IPDID
         public int Public_BEDID;
        public IPD_Registration()
         {
@@ -37,7 +38,7 @@ namespace Ruby_Hospital
             SqlCommand cmd = new SqlCommand(@"SELECT  Name, Age, Mobile_Number, Doctors_Name
 FROM           Patient_Registration
 WHERE        (PID = @PID)", con);
-            cmd.Parameters.AddWithValue("@PID", abc);
+            cmd.Parameters.AddWithValue("@PID", A);
             SqlDataAdapter adt = new SqlDataAdapter(cmd);
             DataTable o = new DataTable();
             adt.Fill(o);
@@ -61,6 +62,10 @@ WHERE        (PID = @PID)", con);
             Referred_Doctor();
             show_PatientDetails();
             BindRoomsegment();
+            if (checkIfselected() == false)
+            {
+                cmb_BedNo.Enabled = false;
+            }
             BindbedNo();
 
         }
@@ -84,6 +89,7 @@ WHERE        (PID = @PID)", con);
             int i = Convert.ToInt32(cmb.ExecuteScalar());
             con.Close();
             i++;
+            ipd_id = i;
             string a = i.ToString("0000");
             txtPatientIPDID.Text = IIDA + a;
         }
@@ -101,14 +107,14 @@ WHERE        (PID = @PID)", con);
                 cmbRoomSegment.DisplayMember = "Name";
                 cmbRoomSegment.ValueMember = "ID";
             }
-
+            con.Close();
         }
         public void BindbedNo()
         {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmd = new SqlCommand("Select * from Master_IPDBedNo where (RoomSegmentID=@RoomSegmentID) and IsVacant=0", con);
-            cmd.Parameters.AddWithValue(@"RoomSegmentID", cmbRoomSegment.SelectedIndex);
+            cmd.Parameters.AddWithValue(@"RoomSegmentID", cmbRoomSegment.SelectedIndex + 1);
             SqlDataAdapter sd = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sd.Fill(dt);
@@ -124,6 +130,7 @@ WHERE        (PID = @PID)", con);
                 }
 
             }
+            con.Close();
 
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -169,44 +176,125 @@ WHERE        (PID = @PID)", con);
         {
             try
             {
-                rowcount();
-                SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
-                con.Open();
-                SqlCommand cmd = new SqlCommand(@"Insert into IPD_Registration (IPD_ID,Patient_Id,Relatives_Name,Relation,Relative_Mobile_No,
+
+                if (cmb_BedNo.Text == "")
+                {
+                    MessageBox.Show("No bed available in " + cmbRoomSegment.Text + " Segment");
+                    return;
+                }
+                else
+                {
+                    rowcount();
+                    SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"Insert into IPD_Registration (IPD_ID,Patient_Id,Relatives_Name,Relation,Relative_Mobile_No,
                                 Date_Of_Admission,Type_Of_Admission,Mediclaim
                    ,Room_Segment,Bed_No,ConsultantID,Reserred_By,MLC_NonMLC,DischargeDate,Remark) Values(@IPD_ID,@Patient_Id,@Relatives_Name,@Relation,@Relative_Mobile_No,@Date_Of_Admission,@Type_Of_Admission,@Mediclaim
                    ,@Room_Segment,@Bed_No,@ConsultantID,@Reserred_By,@MLC_NonMLC,@DischargeDate,@Remark)", con);
 
-                cmd.Parameters.AddWithValue("@IPD_ID",txtPatientIPDID.Text);
-                cmd.Parameters.AddWithValue("@Patient_Id", countpatient);
-                cmd.Parameters.AddWithValue("@Relatives_Name", txtReativeName.Text);
-                cmd.Parameters.AddWithValue("@Relation", cmbRelation.Text);
-                cmd.Parameters.AddWithValue("@Relative_Mobile_No", txtRelativeMobileNo.Text);
-                cmd.Parameters.AddWithValue("@Date_Of_Admission", dateTimePicker1.Text);
-                cmd.Parameters.AddWithValue("@Type_Of_Admission", cmbTypeOfAddmission.Text);
-                cmd.Parameters.AddWithValue("@Mediclaim", cmbMediclaim.Text);
-                cmd.Parameters.AddWithValue("@Room_Segment", cmbRoomSegment.Text);
-                cmd.Parameters.AddWithValue("@Bed_No", cmb_BedNo.Text);
-                cmd.Parameters.AddWithValue("@ConsultantID", cmbConsultant.Text);
-                cmd.Parameters.AddWithValue("@Reserred_By", cmbReferredBy.Text);
-                cmd.Parameters.AddWithValue("@Remark", txtRemark.Text);
+                    cmd.Parameters.AddWithValue("@IPD_ID", txtPatientIPDID.Text);
+                    cmd.Parameters.AddWithValue("@Patient_Id", A);
+                    if (txtReativeName.Text == "" || txtReativeName.Text == "Firstname                                    Middlename                                 Lastname")
+                    {
+                        MessageBox.Show("Enter relative name...");
+                        return;
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Relatives_Name", txtReativeName.Text);
+                    }
+                    if (cmbRelation.Text == "")
+                    {
+                        MessageBox.Show("Select Relation...");
+                        return;
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Relation", cmbRelation.Text);
+                    }
+                    if (txtRelativeMobileNo.Text == "")
+                    {
+                        MessageBox.Show("Select Mobile Number...");
+                        return;
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@Relative_Mobile_No", txtRelativeMobileNo.Text);
+                    }
+                    if (cmbTypeOfAddmission.Text == "IPD")
+                    {
+                        cmd.Parameters.AddWithValue("@Type_Of_Admission", cmbTypeOfAddmission.Text);
 
-                if (rbtnonmlc.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@MLC_NonMLC", "NON MLC");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Select Admission Type...");
+                        return;
+                    }
+                    cmd.Parameters.AddWithValue("@Date_Of_Admission", dateTimePicker1.Text);
+                    cmd.Parameters.AddWithValue("@Mediclaim", cmbMediclaim.Text);
+                    cmd.Parameters.AddWithValue("@Room_Segment", cmbRoomSegment.Text);
+                    cmd.Parameters.AddWithValue("@Bed_No", cmb_BedNo.Text);
+                    cmd.Parameters.AddWithValue("@ConsultantID", cmbConsultant.Text);
+                    cmd.Parameters.AddWithValue("@Reserred_By", cmbReferredBy.Text);
+                    cmd.Parameters.AddWithValue("@Remark", txtRemark.Text);
+
+                    if (rbtnonmlc.Checked == true)
+                    {
+                        cmd.Parameters.AddWithValue("@MLC_NonMLC", "NON MLC");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@MLC_NonMLC", "MLC");
+                    }
+                    cmd.Parameters.AddWithValue("@DischargeDate", dateTimePicker1.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Record Added Successfully ...");
+                    SqlCommand cmd2 = new SqlCommand(@"update Master_IPDBedNo set Isvacant = 1 where roomsegmentid = @rs and bedno = @bno", con);
+                    cmd2.Parameters.AddWithValue("@rs", cmbRoomSegment.SelectedIndex + 1);
+                    cmd2.Parameters.AddWithValue("@bno", cmb_BedNo.Text);
+                    cmd2.ExecuteNonQuery();
+                    con.Close();
+                    assignedBedDetails();
+                    bunSave.Visible = false;
+                    button4.Visible = true;
                 }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@MLC_NonMLC", "MLC");
-                }
-                cmd.Parameters.AddWithValue("@DischargeDate", dateTimePicker1.Text);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Record Added Successfully ...");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        public void assignedBedDetails()
+        {
+            int charge = 0;
+            SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
+            con.Open();
+            SqlCommand c = new SqlCommand(@"select charge from Master_IPDroomsegment where name = @name", con);
+            c.Parameters.AddWithValue("@name", cmbRoomSegment.Text);
+            SqlDataReader rdr = c.ExecuteReader();
+            if (rdr.Read())
+            {
+                charge = Convert.ToInt32(rdr[0]);
+            }
+            rdr.Close();
+            SqlCommand cmd = new SqlCommand(@"insert into [Ruby_Jamner123].[ipd_assignedbeddetails](IPDID,Bed_Segment,Bed_No,From_Date,Charges,Nursing_Charge) values (@ipdid,@seg,@bnumber,@date1,@charges,@nursingChrge)", con);
+            cmd.Parameters.AddWithValue("@ipdid", ipd_id);
+            cmd.Parameters.AddWithValue("@seg", cmbRoomSegment.Text);
+            cmd.Parameters.AddWithValue("@bnumber", cmb_BedNo.Text);
+            cmd.Parameters.AddWithValue("@date1", dateTimePicker1.Text);
+            cmd.Parameters.AddWithValue("@charges", charge);
+            if (cmbRoomSegment.Text == "ICU")
+            {
+                cmd.Parameters.AddWithValue("@nursingChrge", 500);
+            }
+            if (cmbRoomSegment.Text == "Genral Ward")
+            {
+                cmd.Parameters.AddWithValue("@nursingChrge", 300);
+            }
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private void txtReativeName_MouseClick(object sender, MouseEventArgs e)
@@ -269,9 +357,24 @@ WHERE        (PID = @PID)", con);
             con.Close();
         }
 
-        private void cmbRoomSegment_TextChanged(object sender, EventArgs e)
+        private void cmbRoomSegment_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cmb_BedNo.Enabled = true;
+            cmb_BedNo.DataSource = null;
             BindbedNo();
+        }
+
+        public bool checkIfselected()
+        {
+            if (cmbRoomSegment.SelectedIndex == -1)
+                return false;
+            return true;
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

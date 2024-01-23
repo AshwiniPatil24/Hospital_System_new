@@ -13,6 +13,7 @@ namespace Ruby_Hospital
 {
     public partial class IPD_Billng_Gridview : Form
     {
+        public int PID;
         public int ID;
         public IPD_Billng_Gridview()
         {
@@ -28,7 +29,7 @@ namespace Ruby_Hospital
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
             SqlCommand cmb = new SqlCommand(@"SELECT        Ruby_Jamner123.Patient_Registration.Name, Ruby_Jamner123.Patient_Registration.Gender, Ruby_Jamner123.IPD_Registration.Patient_Id AS Expr1, Ruby_Jamner123.Patient_Registration.Patient_ID, 
-                         Ruby_Jamner123.Patient_Registration.PID, Ruby_Jamner123.Patient_Registration.Mobile_Number, Ruby_Jamner123.Patient_Registration.Adhaar_ID
+                         Ruby_Jamner123.Patient_Registration.PID,Ruby_Jamner123.IPD_Registration.IPDID, Ruby_Jamner123.Patient_Registration.Mobile_Number, Ruby_Jamner123.Patient_Registration.Adhaar_ID
 FROM            Ruby_Jamner123.Patient_Registration INNER JOIN
                          Ruby_Jamner123.IPD_Registration ON Ruby_Jamner123.Patient_Registration.PID = Ruby_Jamner123.IPD_Registration.Patient_Id", con);
             SqlDataAdapter adt = new SqlDataAdapter(cmb);
@@ -44,15 +45,22 @@ FROM            Ruby_Jamner123.Patient_Registration INNER JOIN
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+            string columnName = this.dataGridView1.Columns[e.ColumnIndex].Name;
+            if (columnName.Equals("Name") == true)
             {
-                ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["PID"].Value);
-                Fill_IPD_Billing o = new Fill_IPD_Billing(ID);
-                o.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                try
+                {
+                    PID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["PID"].Value);
+                    ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IPDID"].Value);
+                    Fill_IPD_Billing o = new Fill_IPD_Billing(PID, ID);
+                    o.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
     }

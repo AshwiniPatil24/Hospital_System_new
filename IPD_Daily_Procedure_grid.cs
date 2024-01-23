@@ -13,7 +13,8 @@ namespace Ruby_Hospital
 {
     public partial class IPD_Daily_Procedure_grid : Form
     {
-       public int IPDI;
+        public int PID;//PID
+        public int I;//IPDID
         public IPD_Daily_Procedure_grid()
         {
             InitializeComponent();
@@ -23,11 +24,12 @@ namespace Ruby_Hospital
         {        
             show();
         }
+
         public void show()
         {
             SqlConnection con = new SqlConnection(@"Data Source=208.91.198.196;User ID=Ruby_Jamner123;Password=ruby@jamner");
             con.Open();
-            SqlCommand cmb = new SqlCommand(@"SELECT Ruby_Jamner123.Patient_Registration.Name, Ruby_Jamner123.Patient_Registration.Age, Ruby_Jamner123.Patient_Registration.Mobile_Number, Ruby_Jamner123.Patient_Registration.Adhaar_ID, Ruby_Jamner123.IPD_Registration.Patient_Id,
+            SqlCommand cmb = new SqlCommand(@"SELECT Ruby_Jamner123.IPD_Registration.IPD_ID,Ruby_Jamner123.IPD_Registration.IPDID,Ruby_Jamner123.Patient_Registration.Name, Ruby_Jamner123.Patient_Registration.Age, Ruby_Jamner123.Patient_Registration.Mobile_Number, Ruby_Jamner123.Patient_Registration.Adhaar_ID, Ruby_Jamner123.IPD_Registration.Patient_Id,
                          Ruby_Jamner123.Patient_Registration.Doctors_Name
                         FROM            Ruby_Jamner123.Patient_Registration INNER JOIN
                          Ruby_Jamner123.IPD_Registration ON Ruby_Jamner123.Patient_Registration.PID = Ruby_Jamner123.IPD_Registration.Patient_Id", con);
@@ -38,6 +40,7 @@ namespace Ruby_Hospital
             {
                 dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView1.ColumnHeadersDefaultCellStyle.Font, FontStyle.Bold);
                 dataGridView1.DataSource = o;
+                dataGridView1.Columns["IPDID"].Visible = false;
 
             }
         }
@@ -46,7 +49,7 @@ namespace Ruby_Hospital
         //{
         //    //int a = Convert.ToInt32(dataGridView1..Rows[else.RowIndex].Cells["a"].FormattedValue.Tostring());
 
-           
+
         //}
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -59,8 +62,9 @@ namespace Ruby_Hospital
             {
                 try
                 {
-                    IPDI = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Patient_Id"].Value);
-                    IPD_Daily_Procedure_main o = new IPD_Daily_Procedure_main(IPDI);
+                    PID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Patient_Id"].Value);
+                    I = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IPDID"].Value);
+                    IPD_Daily_Procedure_main o = new IPD_Daily_Procedure_main(PID, I);
                     o.ShowDialog();
                 }
                 catch (Exception ex)

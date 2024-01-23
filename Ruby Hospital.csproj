@@ -113,6 +113,30 @@
     <Compile Include="Fill_IPD_Discharge_gridview.Designer.cs">
       <DependentUpon>Fill_IPD_Discharge_gridview.cs</DependentUpon>
     </Compile>
+    <Compile Include="IPDReport\rptAllTestListForPatient.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAllTestListForPatient.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IPDReport\rptConsentForm1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptConsentForm.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IPDReport\rptIPDPaper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIPDPaper.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IPDReport\rptIPDPrescription.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIPDPrescription.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="IPD_Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,6 +409,12 @@
     <Compile Include="SingUp.Designer.cs">
       <DependentUpon>SingUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="SurgicalDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SurgicalDetails.Designer.cs">
+      <DependentUpon>SurgicalDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transfer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -414,6 +444,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fill_IPD_Discharge_gridview.resx">
       <DependentUpon>Fill_IPD_Discharge_gridview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IPDReport\rptAllTestListForPatient.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAllTestListForPatient.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IPDReport\rptConsentForm.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptConsentForm1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IPDReport\rptIPDPaper.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIPDPaper.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IPDReport\rptIPDPrescription.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIPDPrescription.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="IPD_Registration.resx">
       <DependentUpon>IPD_Registration.cs</DependentUpon>
@@ -563,12 +609,16 @@
     <EmbeddedResource Include="SingUp.resx">
       <DependentUpon>SingUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SurgicalDetails.resx">
+      <DependentUpon>SurgicalDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transfer.resx">
       <DependentUpon>Transfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update_patient_status.resx">
       <DependentUpon>Update_patient_status.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\Ruby Hospital.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -726,6 +776,35 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\CrystalDecisions.CrystalReports.Engine.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.ReportSource.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.Shared.dll" />
+    <Content Include="bin\Debug\CrystalDecisions.Windows.Forms.dll" />
+    <Content Include="bin\Debug\FlashControlV71.dll" />
+    <Content Include="bin\Debug\MetroFramework.Design.dll" />
+    <Content Include="bin\Debug\MetroFramework.dll" />
+    <Content Include="bin\Debug\MetroFramework.Fonts.dll" />
+    <Content Include="bin\Debug\Ruby Hospital.exe" />
+    <Content Include="bin\Debug\Ruby Hospital.pdb" />
+    <Content Include="bin\Debug\ShockwaveFlashObjects.dll" />
+    <Content Include="bin\Debug\stdole.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

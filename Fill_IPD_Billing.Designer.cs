@@ -33,19 +33,19 @@ namespace Ruby_Hospital
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.amtAfterDiscount = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.discAuthorityName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.billAmt = new System.Windows.Forms.TextBox();
+            this.discount = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.billDate = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.remark = new System.Windows.Forms.TextBox();
+            this.paymentMode = new System.Windows.Forms.ComboBox();
+            this.billerName = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -53,30 +53,30 @@ namespace Ruby_Hospital
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.payableAmount = new System.Windows.Forms.TextBox();
+            this.paidAmount = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.balanceAmount = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.billAfterDiscount = new System.Windows.Forms.TextBox();
+            this.advance = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.adminCharges = new System.Windows.Forms.TextBox();
+            this.totalBill = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.consultantVisitingCharges = new System.Windows.Forms.TextBox();
+            this.bioMedicalWasteCharges = new System.Windows.Forms.TextBox();
+            this.medicalRecordCharges = new System.Windows.Forms.TextBox();
+            this.HospProcedureCharges = new System.Windows.Forms.TextBox();
+            this.consultantCharges = new System.Windows.Forms.TextBox();
+            this.registrationCharges = new System.Windows.Forms.TextBox();
+            this.BedCharges = new System.Windows.Forms.TextBox();
+            this.NursingCharges = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -90,10 +90,11 @@ namespace Ruby_Hospital
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.infogrid = new System.Windows.Forms.DataGridView();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.surgProcedureCharges = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -102,8 +103,8 @@ namespace Ruby_Hospital
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infogrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -112,19 +113,19 @@ namespace Ruby_Hospital
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
             this.groupBox2.Controls.Add(this.label26);
             this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Controls.Add(this.textBox22);
+            this.groupBox2.Controls.Add(this.amtAfterDiscount);
             this.groupBox2.Controls.Add(this.label25);
-            this.groupBox2.Controls.Add(this.textBox21);
+            this.groupBox2.Controls.Add(this.discAuthorityName);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.textBox20);
-            this.groupBox2.Controls.Add(this.textBox10);
+            this.groupBox2.Controls.Add(this.billAmt);
+            this.groupBox2.Controls.Add(this.discount);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.billDate);
             this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.textBox17);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.textBox16);
+            this.groupBox2.Controls.Add(this.remark);
+            this.groupBox2.Controls.Add(this.paymentMode);
+            this.groupBox2.Controls.Add(this.billerName);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.pictureBox4);
             this.groupBox2.Controls.Add(this.pictureBox3);
@@ -142,39 +143,43 @@ namespace Ruby_Hospital
             resources.ApplyResources(this.label24, "label24");
             this.label24.Name = "label24";
             // 
-            // textBox22
+            // amtAfterDiscount
             // 
-            resources.ApplyResources(this.textBox22, "textBox22");
-            this.textBox22.ForeColor = System.Drawing.Color.Gray;
-            this.textBox22.Name = "textBox22";
+            resources.ApplyResources(this.amtAfterDiscount, "amtAfterDiscount");
+            this.amtAfterDiscount.ForeColor = System.Drawing.Color.Gray;
+            this.amtAfterDiscount.Name = "amtAfterDiscount";
             // 
             // label25
             // 
             resources.ApplyResources(this.label25, "label25");
             this.label25.Name = "label25";
             // 
-            // textBox21
+            // discAuthorityName
             // 
-            resources.ApplyResources(this.textBox21, "textBox21");
-            this.textBox21.ForeColor = System.Drawing.Color.Gray;
-            this.textBox21.Name = "textBox21";
+            resources.ApplyResources(this.discAuthorityName, "discAuthorityName");
+            this.discAuthorityName.ForeColor = System.Drawing.Color.Gray;
+            this.discAuthorityName.Name = "discAuthorityName";
             // 
             // label13
             // 
             resources.ApplyResources(this.label13, "label13");
             this.label13.Name = "label13";
             // 
-            // textBox20
+            // billAmt
             // 
-            resources.ApplyResources(this.textBox20, "textBox20");
-            this.textBox20.ForeColor = System.Drawing.Color.Gray;
-            this.textBox20.Name = "textBox20";
+            resources.ApplyResources(this.billAmt, "billAmt");
+            this.billAmt.ForeColor = System.Drawing.Color.Gray;
+            this.billAmt.Name = "billAmt";
             // 
-            // textBox10
+            // discount
             // 
-            resources.ApplyResources(this.textBox10, "textBox10");
-            this.textBox10.ForeColor = System.Drawing.Color.Gray;
-            this.textBox10.Name = "textBox10";
+            resources.ApplyResources(this.discount, "discount");
+            this.discount.ForeColor = System.Drawing.Color.Gray;
+            this.discount.Name = "discount";
+            this.discount.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.discount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox10_KeyPress);
+            this.discount.Leave += new System.EventHandler(this.textBox10_Leave);
+            this.discount.MouseLeave += new System.EventHandler(this.textBox10_MouseLeave);
             // 
             // label19
             // 
@@ -186,34 +191,34 @@ namespace Ruby_Hospital
             resources.ApplyResources(this.label17, "label17");
             this.label17.Name = "label17";
             // 
-            // dateTimePicker1
+            // billDate
             // 
-            resources.ApplyResources(this.dateTimePicker1, "dateTimePicker1");
-            this.dateTimePicker1.Name = "dateTimePicker1";
+            resources.ApplyResources(this.billDate, "billDate");
+            this.billDate.Name = "billDate";
             // 
             // label16
             // 
             resources.ApplyResources(this.label16, "label16");
             this.label16.Name = "label16";
             // 
-            // textBox17
+            // remark
             // 
-            resources.ApplyResources(this.textBox17, "textBox17");
-            this.textBox17.ForeColor = System.Drawing.Color.Gray;
-            this.textBox17.Name = "textBox17";
+            resources.ApplyResources(this.remark, "remark");
+            this.remark.ForeColor = System.Drawing.Color.Gray;
+            this.remark.Name = "remark";
             // 
-            // comboBox1
+            // paymentMode
             // 
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.ForeColor = System.Drawing.Color.Gray;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Name = "comboBox1";
+            resources.ApplyResources(this.paymentMode, "paymentMode");
+            this.paymentMode.ForeColor = System.Drawing.Color.Gray;
+            this.paymentMode.FormattingEnabled = true;
+            this.paymentMode.Name = "paymentMode";
             // 
-            // textBox16
+            // billerName
             // 
-            resources.ApplyResources(this.textBox16, "textBox16");
-            this.textBox16.ForeColor = System.Drawing.Color.Gray;
-            this.textBox16.Name = "textBox16";
+            resources.ApplyResources(this.billerName, "billerName");
+            this.billerName.ForeColor = System.Drawing.Color.Gray;
+            this.billerName.Name = "billerName";
             // 
             // label15
             // 
@@ -258,30 +263,31 @@ namespace Ruby_Hospital
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.save);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.textBox13);
-            this.groupBox1.Controls.Add(this.textBox15);
+            this.groupBox1.Controls.Add(this.payableAmount);
+            this.groupBox1.Controls.Add(this.paidAmount);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.textBox14);
+            this.groupBox1.Controls.Add(this.balanceAmount);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.textBox11);
-            this.groupBox1.Controls.Add(this.textBox12);
+            this.groupBox1.Controls.Add(this.billAfterDiscount);
+            this.groupBox1.Controls.Add(this.advance);
             this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox9);
+            this.groupBox1.Controls.Add(this.adminCharges);
+            this.groupBox1.Controls.Add(this.totalBill);
             this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox19);
-            this.groupBox1.Controls.Add(this.textBox18);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.consultantVisitingCharges);
+            this.groupBox1.Controls.Add(this.bioMedicalWasteCharges);
+            this.groupBox1.Controls.Add(this.medicalRecordCharges);
+            this.groupBox1.Controls.Add(this.surgProcedureCharges);
+            this.groupBox1.Controls.Add(this.HospProcedureCharges);
+            this.groupBox1.Controls.Add(this.consultantCharges);
+            this.groupBox1.Controls.Add(this.registrationCharges);
+            this.groupBox1.Controls.Add(this.BedCharges);
+            this.groupBox1.Controls.Add(this.NursingCharges);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
@@ -298,42 +304,54 @@ namespace Ruby_Hospital
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button5
+            // button1
             // 
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.BackColor = System.Drawing.Color.Silver;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = false;
+            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // save
+            // 
+            resources.ApplyResources(this.save, "save");
+            this.save.BackColor = System.Drawing.Color.Green;
+            this.save.FlatAppearance.BorderSize = 0;
+            this.save.ForeColor = System.Drawing.Color.White;
+            this.save.Name = "save";
+            this.save.UseVisualStyleBackColor = false;
+            this.save.Click += new System.EventHandler(this.button5_Click);
             // 
             // label11
             // 
             resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
             // 
-            // textBox13
+            // payableAmount
             // 
-            resources.ApplyResources(this.textBox13, "textBox13");
-            this.textBox13.ForeColor = System.Drawing.Color.Gray;
-            this.textBox13.Name = "textBox13";
+            resources.ApplyResources(this.payableAmount, "payableAmount");
+            this.payableAmount.ForeColor = System.Drawing.Color.Gray;
+            this.payableAmount.Name = "payableAmount";
             // 
-            // textBox15
+            // paidAmount
             // 
-            resources.ApplyResources(this.textBox15, "textBox15");
-            this.textBox15.ForeColor = System.Drawing.Color.Gray;
-            this.textBox15.Name = "textBox15";
+            resources.ApplyResources(this.paidAmount, "paidAmount");
+            this.paidAmount.ForeColor = System.Drawing.Color.Gray;
+            this.paidAmount.Name = "paidAmount";
+            this.paidAmount.TextChanged += new System.EventHandler(this.textBox15_TextChanged_1);
+            this.paidAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox15_KeyPress);
             // 
             // label14
             // 
             resources.ApplyResources(this.label14, "label14");
             this.label14.Name = "label14";
             // 
-            // textBox14
+            // balanceAmount
             // 
-            resources.ApplyResources(this.textBox14, "textBox14");
-            this.textBox14.ForeColor = System.Drawing.Color.Gray;
-            this.textBox14.Name = "textBox14";
+            resources.ApplyResources(this.balanceAmount, "balanceAmount");
+            this.balanceAmount.ForeColor = System.Drawing.Color.Gray;
+            this.balanceAmount.Name = "balanceAmount";
             // 
             // label2
             // 
@@ -350,34 +368,36 @@ namespace Ruby_Hospital
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
             // 
-            // textBox11
+            // billAfterDiscount
             // 
-            resources.ApplyResources(this.textBox11, "textBox11");
-            this.textBox11.ForeColor = System.Drawing.Color.Gray;
-            this.textBox11.Name = "textBox11";
+            resources.ApplyResources(this.billAfterDiscount, "billAfterDiscount");
+            this.billAfterDiscount.ForeColor = System.Drawing.Color.Gray;
+            this.billAfterDiscount.Name = "billAfterDiscount";
             // 
-            // textBox12
+            // advance
             // 
-            resources.ApplyResources(this.textBox12, "textBox12");
-            this.textBox12.ForeColor = System.Drawing.Color.Gray;
-            this.textBox12.Name = "textBox12";
+            resources.ApplyResources(this.advance, "advance");
+            this.advance.ForeColor = System.Drawing.Color.Gray;
+            this.advance.Name = "advance";
+            this.advance.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
+            this.advance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox12_KeyPress);
             // 
             // label23
             // 
             resources.ApplyResources(this.label23, "label23");
             this.label23.Name = "label23";
             // 
-            // textBox8
+            // adminCharges
             // 
-            resources.ApplyResources(this.textBox8, "textBox8");
-            this.textBox8.ForeColor = System.Drawing.Color.Gray;
-            this.textBox8.Name = "textBox8";
+            resources.ApplyResources(this.adminCharges, "adminCharges");
+            this.adminCharges.ForeColor = System.Drawing.Color.Gray;
+            this.adminCharges.Name = "adminCharges";
             // 
-            // textBox9
+            // totalBill
             // 
-            resources.ApplyResources(this.textBox9, "textBox9");
-            this.textBox9.ForeColor = System.Drawing.Color.Gray;
-            this.textBox9.Name = "textBox9";
+            resources.ApplyResources(this.totalBill, "totalBill");
+            this.totalBill.ForeColor = System.Drawing.Color.Gray;
+            this.totalBill.Name = "totalBill";
             // 
             // pictureBox2
             // 
@@ -385,60 +405,55 @@ namespace Ruby_Hospital
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
-            // textBox7
+            // consultantVisitingCharges
             // 
-            resources.ApplyResources(this.textBox7, "textBox7");
-            this.textBox7.ForeColor = System.Drawing.Color.Gray;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            resources.ApplyResources(this.consultantVisitingCharges, "consultantVisitingCharges");
+            this.consultantVisitingCharges.ForeColor = System.Drawing.Color.Gray;
+            this.consultantVisitingCharges.Name = "consultantVisitingCharges";
+            this.consultantVisitingCharges.TextChanged += new System.EventHandler(this.consultantVisitingCharges_TextChanged);
             // 
-            // textBox6
+            // bioMedicalWasteCharges
             // 
-            resources.ApplyResources(this.textBox6, "textBox6");
-            this.textBox6.ForeColor = System.Drawing.Color.Gray;
-            this.textBox6.Name = "textBox6";
+            resources.ApplyResources(this.bioMedicalWasteCharges, "bioMedicalWasteCharges");
+            this.bioMedicalWasteCharges.ForeColor = System.Drawing.Color.Gray;
+            this.bioMedicalWasteCharges.Name = "bioMedicalWasteCharges";
             // 
-            // textBox5
+            // medicalRecordCharges
             // 
-            resources.ApplyResources(this.textBox5, "textBox5");
-            this.textBox5.ForeColor = System.Drawing.Color.Gray;
-            this.textBox5.Name = "textBox5";
+            resources.ApplyResources(this.medicalRecordCharges, "medicalRecordCharges");
+            this.medicalRecordCharges.ForeColor = System.Drawing.Color.Gray;
+            this.medicalRecordCharges.Name = "medicalRecordCharges";
             // 
-            // textBox4
+            // HospProcedureCharges
             // 
-            resources.ApplyResources(this.textBox4, "textBox4");
-            this.textBox4.ForeColor = System.Drawing.Color.Gray;
-            this.textBox4.Name = "textBox4";
+            resources.ApplyResources(this.HospProcedureCharges, "HospProcedureCharges");
+            this.HospProcedureCharges.ForeColor = System.Drawing.Color.Gray;
+            this.HospProcedureCharges.Name = "HospProcedureCharges";
             // 
-            // textBox3
+            // consultantCharges
             // 
-            resources.ApplyResources(this.textBox3, "textBox3");
-            this.textBox3.ForeColor = System.Drawing.Color.Gray;
-            this.textBox3.Name = "textBox3";
+            resources.ApplyResources(this.consultantCharges, "consultantCharges");
+            this.consultantCharges.ForeColor = System.Drawing.Color.Gray;
+            this.consultantCharges.Name = "consultantCharges";
             // 
-            // textBox19
+            // registrationCharges
             // 
-            resources.ApplyResources(this.textBox19, "textBox19");
-            this.textBox19.ForeColor = System.Drawing.Color.Gray;
-            this.textBox19.Name = "textBox19";
+            resources.ApplyResources(this.registrationCharges, "registrationCharges");
+            this.registrationCharges.ForeColor = System.Drawing.Color.Gray;
+            this.registrationCharges.Name = "registrationCharges";
             // 
-            // textBox18
+            // BedCharges
             // 
-            resources.ApplyResources(this.textBox18, "textBox18");
-            this.textBox18.ForeColor = System.Drawing.Color.Gray;
-            this.textBox18.Name = "textBox18";
+            resources.ApplyResources(this.BedCharges, "BedCharges");
+            this.BedCharges.ForeColor = System.Drawing.Color.Gray;
+            this.BedCharges.Name = "BedCharges";
+            this.BedCharges.TextChanged += new System.EventHandler(this.BedCharges_TextChanged);
             // 
-            // textBox2
+            // NursingCharges
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.ForeColor = System.Drawing.Color.Gray;
-            this.textBox2.Name = "textBox2";
-            // 
-            // textBox1
-            // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Name = "textBox1";
+            resources.ApplyResources(this.NursingCharges, "NursingCharges");
+            this.NursingCharges.ForeColor = System.Drawing.Color.Gray;
+            this.NursingCharges.Name = "NursingCharges";
             // 
             // label10
             // 
@@ -474,6 +489,7 @@ namespace Ruby_Hospital
             // 
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label21
             // 
@@ -485,6 +501,7 @@ namespace Ruby_Hospital
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -511,18 +528,6 @@ namespace Ruby_Hospital
             resources.ApplyResources(this.infogrid, "infogrid");
             this.infogrid.Name = "infogrid";
             // 
-            // pictureBox6
-            // 
-            resources.ApplyResources(this.pictureBox6, "pictureBox6");
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            resources.ApplyResources(this.pictureBox7, "pictureBox7");
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.TabStop = false;
-            // 
             // button7
             // 
             resources.ApplyResources(this.button7, "button7");
@@ -540,6 +545,24 @@ namespace Ruby_Hospital
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox7
+            // 
+            resources.ApplyResources(this.pictureBox7, "pictureBox7");
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            resources.ApplyResources(this.pictureBox6, "pictureBox6");
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.TabStop = false;
+            // 
+            // surgProcedureCharges
+            // 
+            resources.ApplyResources(this.surgProcedureCharges, "surgProcedureCharges");
+            this.surgProcedureCharges.ForeColor = System.Drawing.Color.Gray;
+            this.surgProcedureCharges.Name = "surgProcedureCharges";
             // 
             // Fill_IPD_Billing
             // 
@@ -569,8 +592,8 @@ namespace Ruby_Hospital
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infogrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -590,56 +613,57 @@ namespace Ruby_Hospital
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox consultantVisitingCharges;
+        private System.Windows.Forms.TextBox bioMedicalWasteCharges;
+        private System.Windows.Forms.TextBox medicalRecordCharges;
+        private System.Windows.Forms.TextBox HospProcedureCharges;
+        private System.Windows.Forms.TextBox BedCharges;
+        private System.Windows.Forms.TextBox NursingCharges;
+        private System.Windows.Forms.TextBox adminCharges;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox billerName;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox remark;
+        private System.Windows.Forms.ComboBox paymentMode;
+        private System.Windows.Forms.DateTimePicker billDate;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox consultantCharges;
+        private System.Windows.Forms.TextBox registrationCharges;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridView infogrid;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox totalBill;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox payableAmount;
+        private System.Windows.Forms.TextBox paidAmount;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox balanceAmount;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox billAfterDiscount;
+        private System.Windows.Forms.TextBox advance;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox amtAfterDiscount;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox discAuthorityName;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox billAmt;
+        private System.Windows.Forms.TextBox discount;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox surgProcedureCharges;
     }
 }
