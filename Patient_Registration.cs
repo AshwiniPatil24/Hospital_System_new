@@ -130,6 +130,12 @@ namespace Ruby_Hospital
 
         private void Patient_Registration_Load(object sender, EventArgs e)
         {
+
+
+            int w = Screen.PrimaryScreen.Bounds.Width;
+            int h = Screen.PrimaryScreen.Bounds.Height;
+            this.Location = new Point(0, 0);
+            this.Size = new Size(w, h);
             btnGOTOIPD.Visible = false;
             button4.Visible = false;
             cbmmaritalstatus.SelectedIndex = 0;
@@ -1199,6 +1205,16 @@ namespace Ruby_Hospital
             {
                 cmbReferred.Text = "";
             }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
