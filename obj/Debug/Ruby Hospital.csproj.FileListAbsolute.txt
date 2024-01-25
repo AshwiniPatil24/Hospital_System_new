@@ -278,6 +278,7 @@ E:\Hospital_System_new\obj\Debug\Ruby_Hospital.RadiologyPatientList.resources
 E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Referred_doctor.resources
 E:\Hospital_System_new\obj\Debug\Ruby_Hospital.SelectOnlyTest.resources
 E:\Hospital_System_new\obj\Debug\Ruby_Hospital.SingUp.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.SurgicalDetails.resources
 E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Transfer.resources
 E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Update_patient_status.resources
 E:\Hospital_System_new\obj\Debug\Ruby Hospital.csproj.GenerateResource.cache
@@ -285,4 +286,3 @@ E:\Hospital_System_new\obj\Debug\Ruby Hospital.csproj.CoreCompileInputs.cache
 E:\Hospital_System_new\obj\Debug\Ruby Hospital.csproj.CopyComplete
 E:\Hospital_System_new\obj\Debug\Ruby Hospital.exe
 E:\Hospital_System_new\obj\Debug\Ruby Hospital.pdb
-E:\Hospital_System_new\obj\Debug\Ruby_Hospital.SurgicalDetails.resources
