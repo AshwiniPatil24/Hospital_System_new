@@ -301,7 +301,6 @@ namespace Ruby_Hospital
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
             this.groupBox1.BackgroundImage = global::Ruby_Hospital.Properties.Resources.bg;
             this.groupBox1.Controls.Add(this.txtconsultacharges);
@@ -340,6 +339,7 @@ namespace Ruby_Hospital
             this.groupBox1.Controls.Add(this.cbmmaritalstatus);
             this.groupBox1.Controls.Add(this.txtprofix);
             this.groupBox1.Controls.Add(this.label3);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -686,6 +686,7 @@ namespace Ruby_Hospital
             resources.ApplyResources(this.label11, "label11");
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Name = "label11";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // txtstate
             // 
@@ -719,6 +720,7 @@ namespace Ruby_Hospital
             resources.ApplyResources(this.label12, "label12");
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Name = "label12";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label21
             // 
@@ -784,6 +786,7 @@ namespace Ruby_Hospital
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MinimizeBox = false;
             this.Name = "Patient_Registration";
             this.Load += new System.EventHandler(this.Patient_Registration_Load);
             this.panel1.ResumeLayout(false);

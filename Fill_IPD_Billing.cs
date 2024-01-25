@@ -272,8 +272,7 @@ namespace Ruby_Hospital
 
         public void showTotalBill()
         {
-            totalBill.Text = (Convert.ToDecimal(registrationCharges.Text) + Convert.ToDecimal(consultantCharges.Text) + Convert.ToDecimal(NursingCharges.Text) + Convert.ToDecimal(BedCharges.Text) + Convert.ToDecimal(HospProcedureCharges.Text) + Convert.ToDecimal(surgProcedureCharges.Text) + Convert.ToDecimal(medicalRecordCharges.Text) 
-                + Convert.ToDecimal(bioMedicalWasteCharges.Text) + Convert.ToDecimal(consultantVisitingCharges.Text) + Convert.ToDecimal(adminCharges.Text)).ToString();
+            totalBill.Text = (Convert.ToDecimal(registrationCharges.Text) + Convert.ToDecimal(consultantCharges.Text) + Convert.ToDecimal(NursingCharges.Text) + Convert.ToDecimal(BedCharges.Text) + Convert.ToDecimal(HospProcedureCharges.Text) + Convert.ToDecimal(surgProcedureCharges.Text) + Convert.ToDecimal(medicalRecordCharges.Text) + Convert.ToDecimal(bioMedicalWasteCharges.Text) + Convert.ToDecimal(consultantVisitingCharges.Text) + Convert.ToDecimal(adminCharges.Text)).ToString();
 
             billAmt.Text = totalBill.Text;
         }

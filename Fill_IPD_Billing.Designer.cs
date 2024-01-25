@@ -72,6 +72,7 @@ namespace Ruby_Hospital
             this.consultantVisitingCharges = new System.Windows.Forms.TextBox();
             this.bioMedicalWasteCharges = new System.Windows.Forms.TextBox();
             this.medicalRecordCharges = new System.Windows.Forms.TextBox();
+            this.surgProcedureCharges = new System.Windows.Forms.TextBox();
             this.HospProcedureCharges = new System.Windows.Forms.TextBox();
             this.consultantCharges = new System.Windows.Forms.TextBox();
             this.registrationCharges = new System.Windows.Forms.TextBox();
@@ -94,7 +95,6 @@ namespace Ruby_Hospital
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.surgProcedureCharges = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -424,6 +424,12 @@ namespace Ruby_Hospital
             this.medicalRecordCharges.ForeColor = System.Drawing.Color.Gray;
             this.medicalRecordCharges.Name = "medicalRecordCharges";
             // 
+            // surgProcedureCharges
+            // 
+            resources.ApplyResources(this.surgProcedureCharges, "surgProcedureCharges");
+            this.surgProcedureCharges.ForeColor = System.Drawing.Color.Gray;
+            this.surgProcedureCharges.Name = "surgProcedureCharges";
+            // 
             // HospProcedureCharges
             // 
             resources.ApplyResources(this.HospProcedureCharges, "HospProcedureCharges");
@@ -557,12 +563,6 @@ namespace Ruby_Hospital
             resources.ApplyResources(this.pictureBox6, "pictureBox6");
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.TabStop = false;
-            // 
-            // surgProcedureCharges
-            // 
-            resources.ApplyResources(this.surgProcedureCharges, "surgProcedureCharges");
-            this.surgProcedureCharges.ForeColor = System.Drawing.Color.Gray;
-            this.surgProcedureCharges.Name = "surgProcedureCharges";
             // 
             // Fill_IPD_Billing
             // 
