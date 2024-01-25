@@ -210,3 +210,79 @@ D:\New_Developed_Hospital_Project\Ruby_Hospital\bin\Debug\ShockwaveFlashObjects.
 D:\New_Developed_Hospital_Project\Ruby_Hospital\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 D:\New_Developed_Hospital_Project\Ruby_Hospital\bin\Debug\stdole.dll
 D:\New_Developed_Hospital_Project\Ruby_Hospital\obj\Debug\Ruby_Hospital.ReportViewerForOPD.resources
+E:\Hospital_System_new\bin\Debug\Ruby Hospital.exe.config
+E:\Hospital_System_new\bin\Debug\Ruby Hospital.exe
+E:\Hospital_System_new\bin\Debug\Ruby Hospital.pdb
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+E:\Hospital_System_new\bin\Debug\ShockwaveFlashObjects.dll
+E:\Hospital_System_new\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\Hospital_System_new\bin\Debug\stdole.dll
+E:\Hospital_System_new\obj\Debug\Ruby Hospital.csprojAssemblyReference.cache
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Assign_OPD_Drugs.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Dashbord.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Fill_IPD_Billing.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Employeeregistration.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Fill_IPD_Discharge.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Fill_IPD_Discharge_gridview.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_Registration.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_Billng_Gridview.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_Daily_Procedure_grid.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_Daily_Procedure_main.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_ECG_and_Radiology_fess.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_lab_test.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Lab_And_Radiology_Billing.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Master_IPD_Sergical_Procedure.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_Surgical_Procedure.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Lab__List.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Master_Drugs.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Master_Lab_test.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Master_OPD_Procedures.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Master_Procedures.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Master_Radiology.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OLD_Discharge_Summary.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_ECG_and_Radiology_list_gridview.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_ECG_and_Radiology_main.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_Hospital_Procedure.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_Patient_ifo.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.IPD_Patient_Transfer.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Login_Form.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.MLC_Details.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Old_lab_Reciept.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Old_OPD_Receipt.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OnlyTestLabTest.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OnlyTextRadiologyTest.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OPDLabRadiologyBilling_Gridview.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.ReportViewerForOPD.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OPD_Billing_Details.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OPD_Billing_info_gridview.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OPD_Billing_List.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OPD_Consultaion_gridview.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OPD_Consultaion_mainform.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OPD_ECG_and_Radiology_list.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OPD_List.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.OPD_Print_Certificate.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.PrintFormManually.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Properties.Resources.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Patient_Registration.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.RadiologyPatientList.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Referred_doctor.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.SelectOnlyTest.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.SingUp.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Transfer.resources
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.Update_patient_status.resources
+E:\Hospital_System_new\obj\Debug\Ruby Hospital.csproj.GenerateResource.cache
+E:\Hospital_System_new\obj\Debug\Ruby Hospital.csproj.CoreCompileInputs.cache
+E:\Hospital_System_new\obj\Debug\Ruby Hospital.csproj.CopyComplete
+E:\Hospital_System_new\obj\Debug\Ruby Hospital.exe
+E:\Hospital_System_new\obj\Debug\Ruby Hospital.pdb
+E:\Hospital_System_new\obj\Debug\Ruby_Hospital.SurgicalDetails.resources

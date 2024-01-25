@@ -1,6 +1,9 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -17,7 +20,7 @@ namespace Ruby_Hospital
         int countpatient;
         int abc;
         int A;//PID
-        int ipd_id;//IPDID
+       public int ipd_id;//IPDID
         public int Public_BEDID;
        public IPD_Registration()
         {
@@ -257,6 +260,10 @@ WHERE        (PID = @PID)", con);
                     con.Close();
                     assignedBedDetails();
                     bunSave.Visible = false;
+                   
+
+                    btnPrintIPDPaper_Click(sender, e);
+                    btnPrintConsentForm_Click(sender, e);
                     button4.Visible = true;
                 }
             }
@@ -375,6 +382,112 @@ WHERE        (PID = @PID)", con);
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrintIPDPaper_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                //2 for Login to server                 
+                IPDReport.rptIPDPaper cryRptNew = new IPDReport.rptIPDPaper();
+
+
+                TableLogOnInfos crtableLogoninfosNew = new TableLogOnInfos();
+                TableLogOnInfo crtableLogoninfoNew = new TableLogOnInfo();
+                ConnectionInfo crConnectionInfoNew = new ConnectionInfo();
+                Tables CrTablesNew;
+
+
+                crConnectionInfoNew.ServerName = ConfigurationSettings.AppSettings["SreverName"].ToString();
+                crConnectionInfoNew.DatabaseName = ConfigurationSettings.AppSettings["DatabaseName"].ToString();
+                crConnectionInfoNew.UserID = ConfigurationSettings.AppSettings["UsernameForReport"].ToString();
+                crConnectionInfoNew.Password = ConfigurationSettings.AppSettings["PasswordForReport"].ToString();
+
+                CrTablesNew = cryRptNew.Database.Tables;
+                foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTablesNew)
+                {
+                    crtableLogoninfoNew = CrTable.LogOnInfo;
+                    crtableLogoninfoNew.ConnectionInfo = crConnectionInfoNew;
+                    CrTable.ApplyLogOnInfo(crtableLogoninfoNew);
+                }
+
+                cryRptNew.SetParameterValue("IPDID", ipd_id);
+
+
+                ReportViewerForOPD obj = new ReportViewerForOPD();
+                obj.crystalReportViewer1.ReportSource = cryRptNew;
+                obj.Refresh();
+                obj.Show();
+
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnPrintConsentForm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                //2 for Login to server                 
+                IPDReport.rptConsentForm cryRptNew = new IPDReport.rptConsentForm();
+
+
+                TableLogOnInfos crtableLogoninfosNew = new TableLogOnInfos();
+                TableLogOnInfo crtableLogoninfoNew = new TableLogOnInfo();
+                ConnectionInfo crConnectionInfoNew = new ConnectionInfo();
+                Tables CrTablesNew;
+
+                //crConnectionInfo.ServerName = "COMP-PC\SQLEXPRESS\\SQLEXPRESS";
+                //crConnectionInfo.DatabaseName = "Db_SSH";
+                //crConnectionInfo.UserID = "SSH1";
+                //crConnectionInfo.Password = "SSH1";
+
+                //crConnectionInfo.ServerName = "SERVER\\SQLEXPRESS";
+                //crConnectionInfo.DatabaseName = "Db_SSH";
+                //crConnectionInfo.UserID = "SSH2";
+                //crConnectionInfo.Password = "SSH2";
+
+                //crConnectionInfo.IntegratedSecurity = true;
+                //crConnectionInfo.ServerName = "SERVER\\SQLEXPRESS";
+                crConnectionInfoNew.ServerName = ConfigurationSettings.AppSettings["SreverName"].ToString();
+                crConnectionInfoNew.DatabaseName = ConfigurationSettings.AppSettings["DatabaseName"].ToString();
+                crConnectionInfoNew.UserID = ConfigurationSettings.AppSettings["UsernameForReport"].ToString();
+                crConnectionInfoNew.Password = ConfigurationSettings.AppSettings["PasswordForReport"].ToString();
+
+                CrTablesNew = cryRptNew.Database.Tables;
+                foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTablesNew)
+                {
+                    crtableLogoninfoNew = CrTable.LogOnInfo;
+                    crtableLogoninfoNew.ConnectionInfo = crConnectionInfoNew;
+                    CrTable.ApplyLogOnInfo(crtableLogoninfoNew);
+                }
+
+                cryRptNew.SetParameterValue("IPDID", ipd_id);
+
+                ReportViewerForOPD obj = new ReportViewerForOPD();
+                //frmrptLabPaymentReceipt obj = new frmrptLabPaymentReceipt();
+                obj.crystalReportViewer1.ReportSource = cryRptNew;
+                obj.Refresh();
+                obj.Show();
+
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
